@@ -16,1183 +16,1018 @@
 {{--    </div>--}}
 {{--</x-app-layout>--}}
 
-
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- Required meta tags -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{{asset('production/images/favicon.ico')}}" type="image/ico" />
 
+    <title>Gentelella Alela!</title>
 
-    <!-- Favicon icon-->
-    <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/images/favicon/favicon.ico')}}">
+    <!-- Bootstrap -->
+    <link href="{{asset('vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="{{asset('vendors/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="{{asset('vendors/nprogress/nprogress.css')}}" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="{{asset('vendors/iCheck/skins/flat/green.css')}}" rel="stylesheet">
 
-    <!-- Libs CSS -->
+    <!-- bootstrap-progressbar -->
+    <link href="{{asset('vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css')}}" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="{{asset('vendors/jqvmap/dist/jqvmap.min.css')}}" rel="stylesheet"/>
+    <!-- bootstrap-daterangepicker -->
+    <link href="{{asset('vendors/bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet">
 
-
-{{--    <link href="{{asset('node_modules/bootstrap-icons/font/bootstrap-icons.css')}}" rel="stylesheet">--}}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    {{--    <link href="{{asset('node_modules/dropzone/dist/dropzone.css')}}" rel="stylesheet">--}}
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.js" rel="stylesheet">
-
-    <link href="{{asset('node_modules/@mdi/font/css/materialdesignicons.min.css')}}" rel="stylesheet"/>
-    <link href="{{asset('node_modules/prismjs/themes/prism-okaidia.css')}}" rel="stylesheet">
-
-    <!-- Theme CSS -->
-    <!-- build:css @@webRoot/assets/css/theme.min.css -->
-    <link rel="stylesheet" href="{{asset('assets/css/theme.css')}}">
-    <!-- endbuild -->
-    <title>Homepage | Dash Ui - Bootstrap 5 Admin Dashboard Template</title>
+    <!-- Custom Theme Style -->
+    <link href="{{asset('build/css/custom.min.css')}}" rel="stylesheet">
 </head>
 
-<body class="bg-light">
-<div id="db-wrapper">
-    <!-- navbar vertical -->
-    <!-- Sidebar -->
-    <nav class="navbar-vertical navbar">
-        <div class="nav-scroller">
-            <!-- Brand logo -->
-            <a class="navbar-brand" href="@@webRoot/index.html">
-                <img src="@@webRoot/assets/images/brand/logo/logo.svg" alt=""/>
-            </a>
-            <!-- Navbar nav -->
-            <ul class="navbar-nav flex-column" id="sideNavbar">
-                <li class="nav-item">
-                    <a class="nav-link has-arrow" href="@@webRoot/index.html">
-                        <i data-feather="home" class="nav-icon icon-xs me-2"></i> Dashboard
-                    </a>
-
-                </li>
-
-
-                <!-- Nav item -->
-                <li class="nav-item">
-                    <div class="navbar-heading">Layouts & Pages</div>
-                </li>
-
-
-                <!-- Nav item -->
-                <li class="nav-item">
-                    <a class="nav-link has-arrow" href="#!" data-bs-toggle="collapse" data-bs-target="#navPages"
-                       aria-expanded="false" aria-controls="navPages">
-                        <i
-                            data-feather="layers"
-
-                            class="nav-icon icon-xs me-2">
-                        </i> Pages
-                    </a>
-
-                    <div id="navPages" class="collapse" data-bs-parent="#sideNavbar">
-                        <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link" href="@@webRoot/pages/profile.html">
-                                    Profile
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link has-arrow " href="@@webRoot/pages/settings.html">
-                                    Settings
-                                </a>
-
-                            </li>
-
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="@@webRoot/pages/billing.html">
-                                    Billing
-                                </a>
-                            </li>
-
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="@@webRoot/pages/pricing.html">
-                                    Pricing
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="@@webRoot/pages/404-error.html">
-                                    404 Error
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-
-                </li>
-
-
-                <!-- Nav item -->
-                <li class="nav-item">
-                    <a class="nav-link has-arrow " href="#!" data-bs-toggle="collapse"
-                       data-bs-target="#navAuthentication" aria-expanded="false" aria-controls="navAuthentication">
-                        <i data-feather="lock" class="nav-icon icon-xs me-2">
-                        </i> Authentication
-                    </a>
-                    <div id="navAuthentication" class="collapse " data-bs-parent="#sideNavbar">
-                        <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link" href="@@webRoot/pages/sign-in.html"> Sign In</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="@@webRoot/pages/sign-up.html"> Sign Up</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="@@webRoot/pages/forget-password.html">
-                                    Forget Password
-                                </a>
-                            </li>
-
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="@@webRoot/pages/layout.html">
-                        <i
-                            data-feather="sidebar"
-
-                            class="nav-icon icon-xs me-2"
-                        >
-                        </i
-                        >
-                        Layouts
-                    </a>
-                </li>
-
-                <!-- Nav item -->
-                <li class="nav-item">
-                    <div class="navbar-heading">UI Components</div>
-                </li>
-
-                <!-- Nav item -->
-                <li class="nav-item">
-                    <a class="nav-link has-arrow" href="@@webRoot/docs/accordions.html">
-                        <i data-feather="package" class="nav-icon icon-xs me-2">
-                        </i> Components
-                    </a>
-                </li>
-
-
-                <li class="nav-item">
-                    <a class="nav-link has-arrow" href="#!" data-bs-toggle="collapse" data-bs-target="#navMenuLevel"
-                       aria-expanded="false" aria-controls="navMenuLevel">
-                        <i
-                            data-feather="corner-left-down"
-
-                            class="nav-icon icon-xs me-2"
-                        >
-                        </i
-                        > Menu Level
-                    </a>
-                    <div id="navMenuLevel" class="collapse" data-bs-parent="#sideNavbar">
-                        <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link has-arrow" href="#!" data-bs-toggle="collapse"
-                                   data-bs-target="#navMenuLevelSecond" aria-expanded="false"
-                                   aria-controls="navMenuLevelSecond">
-                                    Two Level
-                                </a>
-                                <div id="navMenuLevelSecond" class="collapse" data-bs-parent="#navMenuLevel">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#!"> NavItem 1</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#!"> NavItem 2</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link has-arrow" href="#!" data-bs-toggle="collapse"
-                                   data-bs-target="#navMenuLevelThree" aria-expanded="false"
-                                   aria-controls="navMenuLevelThree">
-                                    Three Level
-                                </a>
-                                <div id="navMenuLevelThree" class="collapse" data-bs-parent="#navMenuLevel">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link " href="#!" data-bs-toggle="collapse"
-                                               data-bs-target="#navMenuLevelThreeOne" aria-expanded="false"
-                                               aria-controls="navMenuLevelThreeOne">
-                                                NavItem 1
-                                            </a>
-                                            <div id="navMenuLevelThreeOne" class="collapse collapse "
-                                                 data-bs-parent="#navMenuLevelThree">
-                                                <ul class="nav flex-column">
-                                                    <li class="nav-item">
-                                                        <a class="nav-link" href="#!">
-                                                            NavChild Item 1
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link " href="#!"> Nav Item 2</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-
-                <!-- Nav item -->
-                <li class="nav-item">
-                    <div class="navbar-heading">Documentation</div>
-                </li>
-
-                <!-- Nav item -->
-                <li class="nav-item">
-                    <a class="nav-link has-arrow" href="@@webRoot/docs/index.html">
-                        <i data-feather="clipboard" class="nav-icon icon-xs me-2">
-                        </i> Docs
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link has-arrow" href="@@webRoot/docs/changelog.html">
-                        <i data-feather="git-pull-request" class="nav-icon icon-xs me-2">
-                        </i> Changelog
-                    </a>
-                </li>
-            </ul>
-
-        </div>
-    </nav>
-    <!-- Page content -->
-    <div id="page-content">
-        <div class="header @@classList">
-            <!-- navbar -->
-            <nav class="navbar-classic navbar navbar-expand-lg">
-                <a id="nav-toggle" href="#"><i
-                        data-feather="menu"
-
-                        class="nav-icon me-2 icon-xs"></i></a>
-                <div class="ms-lg-3 d-none d-md-none d-lg-block">
-                    <!-- Form -->
-                    <form class="d-flex align-items-center">
-                        <input type="search" class="form-control" placeholder="Search"/>
-                    </form>
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <div class="col-md-3 left_col">
+            <div class="left_col scroll-view">
+                <div class="navbar nav_title" style="border: 0;">
+                    <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
                 </div>
-                <!--Navbar nav -->
-                <ul class="navbar-nav navbar-right-wrap ms-auto d-flex nav-top-wrap">
-                    <li class="dropdown stopevent">
-                        <a class="btn btn-light btn-icon rounded-circle indicator
-          indicator-primary text-muted" href="#" role="button"
-                           id="dropdownNotification" data-bs-toggle="dropdown" aria-haspopup="true"
-                           aria-expanded="false">
-                            <i class="icon-xs" data-feather="bell"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end"
-                             aria-labelledby="dropdownNotification">
-                            <div>
-                                <div class="border-bottom px-3 pt-2 pb-3 d-flex
-              justify-content-between align-items-center">
-                                    <p class="mb-0 text-dark fw-medium fs-4">Notifications</p>
-                                    <a href="#" class="text-muted">
-                <span>
-                  <i class="me-1 icon-xxs" data-feather="settings"></i>
-                </span>
-                                    </a>
-                                </div>
-                                <!-- List group -->
-                                <ul class="list-group list-group-flush notification-list-scroll">
-                                    <!-- List group item -->
-                                    <li class="list-group-item bg-light">
 
+                <div class="clearfix"></div>
 
-                                        <a href="#" class="text-muted">
-                                            <h5 class=" mb-1">Rishi Chopra</h5>
-                                            <p class="mb-0">
-                                                Mauris blandit erat id nunc blandit, ac eleifend dolor pretium.
-                                            </p>
-                                        </a>
+                <!-- menu profile quick info -->
+                <div class="profile clearfix">
+                    <div class="profile_pic">
+                        <img src="{{asset('production/images/img.jpg')}}" alt="..." class="img-circle profile_img">
+                    </div>
+                    <div class="profile_info">
+                        <span>Welcome,</span>
+                        <h2>John Doe</h2>
+                    </div>
+                </div>
+                <!-- /menu profile quick info -->
 
+                <br />
 
+                <!-- sidebar menu -->
+                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                    <div class="menu_section">
+                        <h3>General</h3>
+                        <ul class="nav side-menu">
+                            <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="index.html">Dashboard</a></li>
+                                    <li><a href="index2.html">Dashboard2</a></li>
+                                    <li><a href="index3.html">Dashboard3</a></li>
+                                </ul>
+                            </li>
+                            <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="form.html">General Form</a></li>
+                                    <li><a href="form_advanced.html">Advanced Components</a></li>
+                                    <li><a href="form_validation.html">Form Validation</a></li>
+                                    <li><a href="form_wizards.html">Form Wizard</a></li>
+                                    <li><a href="form_upload.html">Form Upload</a></li>
+                                    <li><a href="form_buttons.html">Form Buttons</a></li>
+                                </ul>
+                            </li>
+                            <li><a><i class="fa fa-desktop"></i> UI Elements <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="general_elements.html">General Elements</a></li>
+                                    <li><a href="media_gallery.html">Media Gallery</a></li>
+                                    <li><a href="typography.html">Typography</a></li>
+                                    <li><a href="icons.html">Icons</a></li>
+                                    <li><a href="glyphicons.html">Glyphicons</a></li>
+                                    <li><a href="widgets.html">Widgets</a></li>
+                                    <li><a href="invoice.html">Invoice</a></li>
+                                    <li><a href="inbox.html">Inbox</a></li>
+                                    <li><a href="calendar.html">Calendar</a></li>
+                                </ul>
+                            </li>
+                            <li><a><i class="fa fa-table"></i> Tables <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="tables.html">Tables</a></li>
+                                    <li><a href="tables_dynamic.html">Table Dynamic</a></li>
+                                </ul>
+                            </li>
+                            <li><a><i class="fa fa-bar-chart-o"></i> Data Presentation <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="chartjs.html">Chart JS</a></li>
+                                    <li><a href="chartjs2.html">Chart JS2</a></li>
+                                    <li><a href="morisjs.html">Moris JS</a></li>
+                                    <li><a href="echarts.html">ECharts</a></li>
+                                    <li><a href="other_charts.html">Other Charts</a></li>
+                                </ul>
+                            </li>
+                            <li><a><i class="fa fa-clone"></i>Layouts <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="fixed_sidebar.html">Fixed Sidebar</a></li>
+                                    <li><a href="fixed_footer.html">Fixed Footer</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="menu_section">
+                        <h3>Live On</h3>
+                        <ul class="nav side-menu">
+                            <li><a><i class="fa fa-bug"></i> Additional Pages <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="e_commerce.html">E-commerce</a></li>
+                                    <li><a href="projects.html">Projects</a></li>
+                                    <li><a href="project_detail.html">Project Detail</a></li>
+                                    <li><a href="contacts.html">Contacts</a></li>
+                                    <li><a href="profile.html">Profile</a></li>
+                                </ul>
+                            </li>
+                            <li><a><i class="fa fa-windows"></i> Extras <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="page_403.html">403 Error</a></li>
+                                    <li><a href="page_404.html">404 Error</a></li>
+                                    <li><a href="page_500.html">500 Error</a></li>
+                                    <li><a href="plain_page.html">Plain Page</a></li>
+                                    <li><a href="login.html">Login Page</a></li>
+                                    <li><a href="pricing_tables.html">Pricing Tables</a></li>
+                                </ul>
+                            </li>
+                            <li><a><i class="fa fa-sitemap"></i> Multilevel Menu <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="#level1_1">Level One</a>
+                                    <li><a>Level One<span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li class="sub_menu"><a href="level2.html">Level Two</a>
+                                            </li>
+                                            <li><a href="#level2_1">Level Two</a>
+                                            </li>
+                                            <li><a href="#level2_2">Level Two</a>
+                                            </li>
+                                        </ul>
                                     </li>
-                                    <!-- List group item -->
-                                    <li class="list-group-item">
-
-
-                                        <a href="#" class="text-muted">
-                                            <h5 class=" mb-1">Neha Kannned</h5>
-                                            <p class="mb-0">
-                                                Proin at elit vel est condimentum elementum id in ante. Maecenas et
-                                                sapien metus.
-                                            </p>
-                                        </a>
-
-
-                                    </li>
-                                    <!-- List group item -->
-                                    <li class="list-group-item">
-
-
-                                        <a href="#" class="text-muted">
-                                            <h5 class=" mb-1">Nirmala Chauhan</h5>
-                                            <p class="mb-0">
-                                                Morbi maximus urna lobortis elit sollicitudin sollicitudieget elit vel
-                                                pretium.
-                                            </p>
-                                        </a>
-
-
-                                    </li>
-                                    <!-- List group item -->
-                                    <li class="list-group-item">
-
-
-                                        <a href="#" class="text-muted">
-                                            <h5 class=" mb-1">Sina Ray</h5>
-                                            <p class="mb-0">
-                                                Sed aliquam augue sit amet mauris volutpat hendrerit sed nunc eu diam.
-                                            </p>
-                                        </a>
-
-
+                                    <li><a href="#level1_2">Level One</a>
                                     </li>
                                 </ul>
-                                <div class="border-top px-3 py-2 text-center">
-                                    <a href="#" class="text-inherit fw-semi-bold">
-                                        View all Notifications
-                                    </a>
-                                </div>
+                            </li>
+                            <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Landing Page <span class="label label-success pull-right">Coming Soon</span></a></li>
+                        </ul>
+                    </div>
+
+                </div>
+                <!-- /sidebar menu -->
+
+                <!-- /menu footer buttons -->
+                <div class="sidebar-footer hidden-small">
+                    <a data-toggle="tooltip" data-placement="top" title="Settings">
+                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                        <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="Lock">
+                        <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                    </a>
+                </div>
+                <!-- /menu footer buttons -->
+            </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+            <div class="nav_menu">
+                <div class="nav toggle">
+                    <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                </div>
+                <nav class="nav navbar-nav">
+                    <ul class=" navbar-right">
+                        <li class="nav-item dropdown open" style="padding-left: 15px;">
+                            <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
+                                <img src="{{asset('production/images/img.jpg')}}" alt="">John Doe
+                            </a>
+                            <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{route('profile.edit')}}"> Profile</a>
+                                <a class="dropdown-item"  href="javascript:;">
+                                    <span class="badge bg-red pull-right">50%</span>
+                                    <span>Settings</span>
+                                </a>
+                                <a class="dropdown-item"  href="javascript:;">Help</a>
+
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <a class="dropdown-item" href="{{route('logout')}}" onclick="event.preventDefault();
+                                                this.closest('form').submit();"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                                </form>
                             </div>
-                        </div>
-                    </li>
-                    <!-- List -->
-                    <li class="dropdown ms-2">
-                        <a class="rounded-circle" href="#" role="button" id="dropdownUser"
-                           data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="avatar avatar-md avatar-indicators avatar-online">
-                                <img alt="avatar" src="@@webRoot/assets/images/avatar/avatar-1.jpg"
-                                     class="rounded-circle"/>
-                            </div>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end"
-                             aria-labelledby="dropdownUser">
-                            <div class="px-4 pb-0 pt-2">
+                        </li>
 
-
-                                <div class="lh-1 ">
-                                    <h5 class="mb-1"> John E. Grainger</h5>
-                                    <a href="#" class="text-inherit fs-6">View my profile</a>
-                                </div>
-                                <div class=" dropdown-divider mt-3 mb-2"></div>
-                            </div>
-
-                            <ul class="list-unstyled">
-
-                                <li>
-                                    <a class="dropdown-item" href="#">
-                                        <i class="me-2 icon-xxs dropdown-item-icon" data-feather="user"></i>Edit
-                                        Profile
+                        <li role="presentation" class="nav-item dropdown open">
+                            <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
+                                <i class="fa fa-envelope-o"></i>
+                                <span class="badge bg-green">6</span>
+                            </a>
+                            <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
+                                <li class="nav-item">
+                                    <a class="dropdown-item">
+                                        <span class="image"><img src="{{asset('production/images/img.jpg')}}" alt="Profile Image" /></span>
+                                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a class="dropdown-item"
-                                       href="#">
-                                        <i class="me-2 icon-xxs dropdown-item-icon"
-                                           data-feather="activity"></i>Activity Log
-                                    </a>
-
-
-                                </li>
-
-                                <li>
-                                    <a class="dropdown-item text-primary" href="#">
-                                        <i class="me-2 icon-xxs text-primary dropdown-item-icon"
-                                           data-feather="star"></i>Go Pro
+                                <li class="nav-item">
+                                    <a class="dropdown-item">
+                                        <span class="image"><img src="{{asset('production/images/img.jpg')}}" alt="Profile Image" /></span>
+                                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">
-                                        <i class="me-2 icon-xxs dropdown-item-icon"
-                                           data-feather="settings"></i>Account Settings
+                                <li class="nav-item">
+                                    <a class="dropdown-item">
+                                        <span class="image"><img src="{{asset('production/images/img.jpg')}}" alt="Profile Image" /></span>
+                                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a class="dropdown-item" href="@@webRoot/index.html">
-                                        <i class="me-2 icon-xxs dropdown-item-icon"
-                                           data-feather="power"></i>Sign Out
+                                <li class="nav-item">
+                                    <a class="dropdown-item">
+                                        <span class="image"><img src="{{asset('production/images/img.jpg')}}" alt="Profile Image" /></span>
+                                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
                                     </a>
+                                </li>
+                                <li class="nav-item">
+                                    <div class="text-center">
+                                        <a class="dropdown-item">
+                                            <strong>See All Alerts</strong>
+                                            <i class="fa fa-angle-right"></i>
+                                        </a>
+                                    </div>
                                 </li>
                             </ul>
-
-                        </div>
-                    </li>
-                </ul>
-            </nav>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </div>
-        <!-- Container fluid -->
-        <div class="bg-primary pt-10 pb-21"></div>
-        <div class="container-fluid mt-n22 px-6">
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <!-- top tiles -->
+            <div class="row" style="display: inline-block;" >
+                <div class="tile_count">
+                    <div class="col-md-2 col-sm-4  tile_stats_count">
+                        <span class="count_top"><i class="fa fa-user"></i> Total Users</span>
+                        <div class="count">2500</div>
+                        <span class="count_bottom"><i class="green">4% </i> From last Week</span>
+                    </div>
+                    <div class="col-md-2 col-sm-4  tile_stats_count">
+                        <span class="count_top"><i class="fa fa-clock-o"></i> Average Time</span>
+                        <div class="count">123.50</div>
+                        <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> From last Week</span>
+                    </div>
+                    <div class="col-md-2 col-sm-4  tile_stats_count">
+                        <span class="count_top"><i class="fa fa-user"></i> Total Males</span>
+                        <div class="count green">2,500</div>
+                        <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
+                    </div>
+                    <div class="col-md-2 col-sm-4  tile_stats_count">
+                        <span class="count_top"><i class="fa fa-user"></i> Total Females</span>
+                        <div class="count">4,567</div>
+                        <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i> From last Week</span>
+                    </div>
+                    <div class="col-md-2 col-sm-4  tile_stats_count">
+                        <span class="count_top"><i class="fa fa-user"></i> Total Collections</span>
+                        <div class="count">2,315</div>
+                        <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
+                    </div>
+                    <div class="col-md-2 col-sm-4  tile_stats_count">
+                        <span class="count_top"><i class="fa fa-user"></i> Total Connections</span>
+                        <div class="count">7,325</div>
+                        <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
+                    </div>
+                </div>
+            </div>
+            <!-- /top tiles -->
+
             <div class="row">
-                <div class="col-lg-12 col-md-12 col-12">
-                    <!-- Page header -->
-                    <div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="mb-2 mb-lg-0">
-                                <h3 class="mb-0  text-white">Projects</h3>
+                <div class="col-md-12 col-sm-12 ">
+                    <div class="dashboard_graph">
+
+                        <div class="row x_title">
+                            <div class="col-md-6">
+                                <h3>Network Activities <small>Graph title sub-title</small></h3>
                             </div>
-                            <div>
-                                <a href="#" class="btn btn-white">Create New Project</a>
+                            <div class="col-md-6">
+                                <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
+                                    <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                                    <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-6 col-md-12 col-12 mt-6">
-                    <!-- card -->
-                    <div class="card ">
-                        <!-- card body -->
-                        <div class="card-body">
-                            <!-- heading -->
-                            <div class="d-flex justify-content-between align-items-center
-                    mb-3">
+
+                        <div class="col-md-9 col-sm-9 ">
+                            <div id="chart_plot_01" class="demo-placeholder"></div>
+                        </div>
+                        <div class="col-md-3 col-sm-3  bg-white">
+                            <div class="x_title">
+                                <h2>Top Campaign Performance</h2>
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="col-md-12 col-sm-12 ">
                                 <div>
-                                    <h4 class="mb-0">Projects</h4>
+                                    <p>Facebook Campaign</p>
+                                    <div class="">
+                                        <div class="progress progress_sm" style="width: 76%;">
+                                            <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="80"></div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="icon-shape icon-md bg-light-primary text-primary
-                      rounded-2">
-                                    <i class="bi bi-briefcase fs-4"></i>
-                                </div>
-                            </div>
-                            <!-- project number -->
-                            <div>
-                                <h1 class="fw-bold">18</h1>
-                                <p class="mb-0"><span class="text-dark me-2">2</span>Completed</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-6 col-md-12 col-12 mt-6">
-                    <!-- card -->
-                    <div class="card ">
-                        <!-- card body -->
-                        <div class="card-body">
-                            <!-- heading -->
-                            <div class="d-flex justify-content-between align-items-center
-                    mb-3">
                                 <div>
-                                    <h4 class="mb-0">Active Task</h4>
-                                </div>
-                                <div class="icon-shape icon-md bg-light-primary text-primary
-                      rounded-2">
-                                    <i class="bi bi-list-task fs-4"></i>
-                                </div>
-                            </div>
-                            <!-- project number -->
-                            <div>
-                                <h1 class="fw-bold">132</h1>
-                                <p class="mb-0"><span class="text-dark me-2">28</span>Completed</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-6 col-md-12 col-12 mt-6">
-                    <!-- card -->
-                    <div class="card ">
-                        <!-- card body -->
-                        <div class="card-body">
-                            <!-- heading -->
-                            <div class="d-flex justify-content-between align-items-center
-                    mb-3">
-                                <div>
-                                    <h4 class="mb-0">Teams</h4>
-                                </div>
-                                <div class="icon-shape icon-md bg-light-primary text-primary
-                      rounded-2">
-                                    <i class="bi bi-people fs-4"></i>
-                                </div>
-                            </div>
-                            <!-- project number -->
-                            <div>
-                                <h1 class="fw-bold">12</h1>
-                                <p class="mb-0"><span class="text-dark me-2">1</span>Completed</p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-xl-3 col-lg-6 col-md-12 col-12 mt-6">
-                    <!-- card -->
-                    <div class="card ">
-                        <!-- card body -->
-                        <div class="card-body">
-                            <!-- heading -->
-                            <div class="d-flex justify-content-between align-items-center
-                    mb-3">
-                                <div>
-                                    <h4 class="mb-0">Productivity</h4>
-                                </div>
-                                <div class="icon-shape icon-md bg-light-primary text-primary
-                      rounded-2">
-                                    <i class="bi bi-bullseye fs-4"></i>
-                                </div>
-                            </div>
-                            <!-- project number -->
-                            <div>
-                                <h1 class="fw-bold">76%</h1>
-                                <p class="mb-0"><span class="text-success me-2">5%</span>Completed</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- row  -->
-            <div class="row mt-6">
-                <div class="col-md-12 col-12">
-                    <!-- card  -->
-                    <div class="card">
-                        <!-- card header  -->
-                        <div class="card-header bg-white  py-4">
-                            <h4 class="mb-0">Active Projects</h4>
-                        </div>
-                        <!-- table  -->
-                        <div class="table-responsive">
-                            <table class="table text-nowrap mb-0">
-                                <thead class="table-light">
-                                <tr>
-                                    <th>Project name</th>
-                                    <th>Hours</th>
-                                    <th>priority</th>
-                                    <th>Members</th>
-                                    <th>Progress</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td class="align-middle">
-                                        <div class="d-flex
-                            align-items-center">
-                                            <div>
-                                                <div class="icon-shape icon-md border p-4
-                                rounded-1">
-                                                    <img src="assets/images/brand/dropbox-logo.svg" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="ms-3 lh-1">
-                                                <h5 class=" mb-1"><a href="#" class="text-inherit">Dropbox Design
-                                                        System</a></h5>
-
-                                            </div>
+                                    <p>Twitter Campaign</p>
+                                    <div class="">
+                                        <div class="progress progress_sm" style="width: 76%;">
+                                            <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="60"></div>
                                         </div>
-                                    </td>
-                                    <td class="align-middle">34</td>
-                                    <td class="align-middle"><span class="badge
-                            bg-warning">Medium</span></td>
-                                    <td class="align-middle">
-                                        <div class="avatar-group">
-                                                    <span class="avatar avatar-sm">
-                              <img alt="avatar"
-                                   src="assets/images/avatar/avatar-1.jpg"
-                                   class="rounded-circle">
-                            </span>
-                                            <span class="avatar avatar-sm">
-                              <img alt="avatar"
-                                   src="assets/images/avatar/avatar-2.jpg"
-                                   class="rounded-circle">
-                            </span>
-                                            <span class="avatar avatar-sm">
-                              <img alt="avatar"
-                                   src="assets/images/avatar/avatar-3.jpg"
-                                   class="rounded-circle">
-                            </span>
-                                            <span class="avatar avatar-sm avatar-primary">
-                              <span class="avatar-initials rounded-circle
-                                fs-6">+5</span>
-                                                    </span>
-                                        </div>
-                                    </td>
-                                    <td class="align-middle text-dark">
-                                        <div class="float-start me-3">15%</div>
-                                        <div class="mt-2">
-                                            <div class="progress" style="height: 5px;">
-                                                <div class="progress-bar" role="progressbar" style="width:15%"
-                                                     aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="align-middle">
-                                        <div class="d-flex
-                            align-items-center">
-                                            <div>
-                                                <div class="icon-shape icon-md border p-4
-                                rounded-1">
-                                                    <img src="assets/images/brand/slack-logo.svg" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="ms-3 lh-1">
-                                                <h5 class=" mb-1"><a href="#" class="text-inherit">Slack Team UI
-                                                        Design</a></h5>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="align-middle">47</td>
-                                    <td class="align-middle"><span class="badge
-                            bg-danger">High</span></td>
-                                    <td class="align-middle">
-                                        <div class="avatar-group">
-                                                    <span class="avatar avatar-sm">
-                              <img alt="avatar"
-                                   src="assets/images/avatar/avatar-4.jpg"
-                                   class="rounded-circle">
-                            </span>
-                                            <span class="avatar avatar-sm">
-                              <img alt="avatar"
-                                   src="assets/images/avatar/avatar-5.jpg"
-                                   class="rounded-circle">
-                            </span>
-                                            <span class="avatar avatar-sm">
-                              <img alt="avatar"
-                                   src="assets/images/avatar/avatar-6.jpg"
-                                   class="rounded-circle">
-                            </span>
-                                            <span class="avatar avatar-sm avatar-primary">
-                              <span class="avatar-initials rounded-circle
-                                fs-6">+5</span>
-                                                    </span>
-                                        </div>
-                                    </td>
-                                    <td class="align-middle text-dark">
-                                        <div class="float-start me-3">35%</div>
-                                        <div class="mt-2">
-                                            <div class="progress" style="height: 5px;">
-                                                <div class="progress-bar" role="progressbar" style="width:35%"
-                                                     aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="align-middle">
-                                        <div class="d-flex
-                            align-items-center">
-                                            <div>
-                                                <div class="icon-shape icon-md border p-4
-                                rounded-1">
-                                                    <img src="assets/images/brand/github-logo.svg" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="ms-3 lh-1">
-                                                <h5 class=" mb-1"><a href="#" class="text-inherit">GitHub Satellite</a>
-                                                </h5>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="align-middle">120</td>
-                                    <td class="align-middle"><span class="badge bg-info">Low</span></td>
-                                    <td class="align-middle">
-                                        <div class="avatar-group">
-                                                    <span class="avatar avatar-sm">
-                              <img alt="avatar"
-                                   src="assets/images/avatar/avatar-7.jpg"
-                                   class="rounded-circle">
-                            </span>
-                                            <span class="avatar avatar-sm">
-                              <img alt="avatar"
-                                   src="assets/images/avatar/avatar-8.jpg"
-                                   class="rounded-circle">
-                            </span>
-                                            <span class="avatar avatar-sm">
-                              <img alt="avatar"
-                                   src="assets/images/avatar/avatar-9.jpg"
-                                   class="rounded-circle">
-                            </span>
-                                            <span class="avatar avatar-sm avatar-primary">
-                              <span class="avatar-initials rounded-circle
-                                fs-6">+1</span>
-                                                    </span>
-                                        </div>
-                                    </td>
-                                    <td class="align-middle text-dark">
-                                        <div class="float-start me-3">75%</div>
-                                        <div class="mt-2">
-                                            <div class="progress" style="height: 5px;">
-                                                <div class="progress-bar" role="progressbar" style="width:75%"
-                                                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="align-middle">
-                                        <div class="d-flex
-                            align-items-center">
-                                            <div>
-                                                <div class="icon-shape icon-md border p-4
-                                rounded-1">
-                                                    <img src="assets/images/brand/3dsmax-logo.svg" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="ms-3 lh-1">
-                                                <h5 class=" mb-1"><a href="#" class="text-inherit">3D Character
-                                                        Modelling</a></h5>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="align-middle">89</td>
-                                    <td class="align-middle"><span class="badge
-                            bg-warning">Medium</span></td>
-                                    <td class="align-middle">
-                                        <div class="avatar-group">
-                                                    <span class="avatar avatar-sm">
-                              <img alt="avatar"
-                                   src="assets/images/avatar/avatar-10.jpg"
-                                   class="rounded-circle">
-                            </span>
-                                            <span class="avatar avatar-sm">
-                              <img alt="avatar"
-                                   src="assets/images/avatar/avatar-11.jpg"
-                                   class="rounded-circle">
-                            </span>
-                                            <span class="avatar avatar-sm">
-                              <img alt="avatar"
-                                   src="assets/images/avatar/avatar-12.jpg"
-                                   class="rounded-circle">
-                            </span>
-                                            <span class="avatar avatar-sm avatar-primary">
-                              <span class="avatar-initials rounded-circle
-                                fs-6">+5</span>
-                                                    </span>
-                                        </div>
-                                    </td>
-                                    <td class="align-middle text-dark">
-                                        <div class="float-start me-3">63%</div>
-                                        <div class="mt-2">
-                                            <div class="progress" style="height: 5px;">
-                                                <div class="progress-bar" role="progressbar" style="width:63%"
-                                                     aria-valuenow="63" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="align-middle">
-                                        <div class="d-flex
-                            align-items-center">
-                                            <div>
-                                                <div class="icon-shape icon-md border p-4 rounded
-                                bg-primary">
-                                                    <img src="assets/images/brand/layers-logo.svg" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="ms-3 lh-1">
-                                                <h5 class=" mb-1"><a href="#" class="text-inherit">Webapp Design
-                                                        System</a>
-                                                </h5>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="align-middle">108</td>
-                                    <td class="align-middle"><span class="badge
-                            bg-success">Track</span></td>
-                                    <td class="align-middle">
-                                        <div class="avatar-group">
-                                                    <span class="avatar avatar-sm">
-                              <img alt="avatar"
-                                   src="assets/images/avatar/avatar-13.jpg"
-                                   class="rounded-circle">
-                            </span>
-                                            <span class="avatar avatar-sm">
-                              <img alt="avatar"
-                                   src="assets/images/avatar/avatar-14.jpg"
-                                   class="rounded-circle">
-                            </span>
-                                            <span class="avatar avatar-sm">
-                              <img alt="avatar"
-                                   src="assets/images/avatar/avatar-15.jpg"
-                                   class="rounded-circle">
-                            </span>
-                                            <span class="avatar avatar-sm avatar-primary">
-                              <span class="avatar-initials rounded-circle
-                                fs-6">+5</span>
-                                                    </span>
-                                        </div>
-                                    </td>
-                                    <td class="align-middle text-dark">
-                                        <div class="float-start me-3">100%</div>
-                                        <div class="mt-2">
-                                            <div class="progress" style="height: 5px;">
-                                                <div class="progress-bar bg-success" role="progressbar"
-                                                     style="width:100%" aria-valuenow="100" aria-valuemin="0"
-                                                     aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="align-middle border-bottom-0">
-                                        <div class="d-flex
-                            align-items-center">
-                                            <div>
-                                                <div class="icon-shape icon-md border p-4 rounded-1">
-                                                    <img src="assets/images/brand/github-logo.svg" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="ms-3 lh-1">
-                                                <h5 class=" mb-1"><a href="#" class="text-inherit">Github Event
-                                                        Design</a>
-                                                </h5>
-
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="align-middle border-bottom-0">120</td>
-                                    <td class="align-middle border-bottom-0"><span class="badge bg-info">Low</span></td>
-                                    <td class="align-middle border-bottom-0">
-                                        <div class="avatar-group">
-                                                    <span class="avatar avatar-sm">
-                              <img alt="avatar"
-                                   src="assets/images/avatar/avatar-13.jpg"
-                                   class="rounded-circle">
-                            </span>
-                                            <span class="avatar avatar-sm">
-                              <img alt="avatar"
-                                   src="assets/images/avatar/avatar-14.jpg"
-                                   class="rounded-circle">
-                            </span>
-                                            <span class="avatar avatar-sm">
-                              <img alt="avatar"
-                                   src="assets/images/avatar/avatar-15.jpg"
-                                   class="rounded-circle">
-                            </span>
-                                            <span class="avatar avatar-sm avatar-primary">
-                              <span class="avatar-initials rounded-circle
-                                fs-6">+1</span>
-                                                    </span>
-                                        </div>
-                                    </td>
-                                    <td class="align-middle text-dark border-bottom-0">
-                                        <div class="float-start me-3">75%</div>
-                                        <div class="mt-2">
-                                            <div class="progress" style="height: 5px;">
-                                                <div class="progress-bar" role="progressbar" style="width:75%"
-                                                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-
-                                    </td>
-                                </tr>
-
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- card footer  -->
-                        <div class="card-footer bg-white text-center">
-                            <a href="#" class="link-primary">View All Projects</a>
-
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <!-- row  -->
-            <div class="row my-6">
-                <div class="col-xl-4 col-lg-12 col-md-12 col-12 mb-6 mb-xl-0">
-                    <!-- card  -->
-                    <div class="card h-100">
-                        <!-- card body  -->
-                        <div class="card-body">
-                            <div class="d-flex align-items-center
-                    justify-content-between">
-                                <div>
-                                    <h4 class="mb-0">Tasks Performance </h4>
-                                </div>
-                                <!-- dropdown  -->
-                                <div class="dropdown dropstart">
-                                    <a class="text-muted text-primary-hover" href="#" role="button" id="dropdownTask"
-                                       data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="icon-xxs" data-feather="more-vertical"></i>
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownTask">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
                                     </div>
                                 </div>
                             </div>
-                            <!-- chart  -->
-                            <div class="mb-8">
-                                <div id="perfomanceChart"></div>
-                            </div>
-                            <!-- icon with content  -->
-                            <div class="d-flex align-items-center justify-content-around">
-                                <div class="text-center">
-                                    <i class="icon-sm text-success" data-feather="check-circle"></i>
-                                    <h1 class="mt-3  mb-1 fw-bold">76%</h1>
-                                    <p>Completed</p>
+                            <div class="col-md-12 col-sm-12 ">
+                                <div>
+                                    <p>Conventional Media</p>
+                                    <div class="">
+                                        <div class="progress progress_sm" style="width: 76%;">
+                                            <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="40"></div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="text-center">
-                                    <i class="icon-sm text-warning" data-feather="trending-up"></i>
-                                    <h1 class="mt-3  mb-1 fw-bold">32%</h1>
-                                    <p>In-Progress</p>
-                                </div>
-                                <div class="text-center">
-                                    <i class="icon-sm text-danger" data-feather="trending-down"></i>
-                                    <h1 class="mt-3  mb-1 fw-bold">13%</h1>
-                                    <p>Behind</p>
+                                <div>
+                                    <p>Bill boards</p>
+                                    <div class="">
+                                        <div class="progress progress_sm" style="width: 76%;">
+                                            <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+
+                        </div>
+
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+
+            </div>
+            <br />
+
+            <div class="row">
+
+
+                <div class="col-md-4 col-sm-4 ">
+                    <div class="x_panel tile fixed_height_320">
+                        <div class="x_title">
+                            <h2>App Versions</h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">Settings 1</a>
+                                        <a class="dropdown-item" href="#">Settings 2</a>
+                                    </div>
+                                </li>
+                                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <h4>App Usage across versions</h4>
+                            <div class="widget_summary">
+                                <div class="w_left w_25">
+                                    <span>0.1.5.2</span>
+                                </div>
+                                <div class="w_center w_55">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 66%;">
+                                            <span class="sr-only">60% Complete</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w_right w_20">
+                                    <span>123k</span>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="widget_summary">
+                                <div class="w_left w_25">
+                                    <span>0.1.5.3</span>
+                                </div>
+                                <div class="w_center w_55">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 45%;">
+                                            <span class="sr-only">60% Complete</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w_right w_20">
+                                    <span>53k</span>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="widget_summary">
+                                <div class="w_left w_25">
+                                    <span>0.1.5.4</span>
+                                </div>
+                                <div class="w_center w_55">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 25%;">
+                                            <span class="sr-only">60% Complete</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w_right w_20">
+                                    <span>23k</span>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="widget_summary">
+                                <div class="w_left w_25">
+                                    <span>0.1.5.5</span>
+                                </div>
+                                <div class="w_center w_55">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 5%;">
+                                            <span class="sr-only">60% Complete</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w_right w_20">
+                                    <span>3k</span>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="widget_summary">
+                                <div class="w_left w_25">
+                                    <span>0.1.5.6</span>
+                                </div>
+                                <div class="w_center w_55">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 2%;">
+                                            <span class="sr-only">60% Complete</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w_right w_20">
+                                    <span>1k</span>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
-                <!-- card  -->
-                <div class="col-xl-8 col-lg-12 col-md-12 col-12">
-                    <div class="card h-100">
-                        <!-- card header  -->
-                        <div class="card-header bg-white py-4">
-                            <h4 class="mb-0">Teams </h4>
+
+                <div class="col-md-4 col-sm-4 ">
+                    <div class="x_panel tile fixed_height_320 overflow_hidden">
+                        <div class="x_title">
+                            <h2>Device Usage</h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">Settings 1</a>
+                                        <a class="dropdown-item" href="#">Settings 2</a>
+                                    </div>
+                                </li>
+                                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
                         </div>
-                        <!-- table  -->
-                        <div class="table-responsive">
-                            <table class="table text-nowrap">
-                                <thead class="table-light">
+                        <div class="x_content">
+                            <table class="" style="width:100%">
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Role</th>
-                                    <th>Last Activity</th>
-                                    <th></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td class="align-middle">
-                                        <div class="d-flex align-items-center">
-                                            <div>
-                                                <img src="assets/images/avatar/avatar-2.jpg" alt=""
-                                                     class="avatar-md avatar rounded-circle">
-                                            </div>
-                                            <div class="ms-3 lh-1">
-                                                <h5 class=" mb-1">Anita Parmar</h5>
-                                                <p class="mb-0">anita@example.com</p>
-                                            </div>
+                                    <th style="width:37%;">
+                                        <p>Top 5</p>
+                                    </th>
+                                    <th>
+                                        <div class="col-lg-7 col-md-7 col-sm-7 ">
+                                            <p class="">Device</p>
                                         </div>
-                                    </td>
-                                    <td class="align-middle">Front End Developer</td>
-                                    <td class="align-middle">3 May, 2023</td>
-                                    <td class="align-middle">
-                                        <div class="dropdown dropstart">
-                                            <a class="text-muted text-primary-hover" href="#" role="button"
-                                               id="dropdownTeamOne" data-bs-toggle="dropdown" aria-haspopup="true"
-                                               aria-expanded="false">
-                                                <i class="icon-xxs" data-feather="more-vertical"></i>
-                                            </a>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownTeamOne">
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Another action</a>
-                                                <a class="dropdown-item" href="#">Something else
-                                                    here</a>
-                                            </div>
+                                        <div class="col-lg-5 col-md-5 col-sm-5 ">
+                                            <p class="">Progress</p>
                                         </div>
-                                    </td>
+                                    </th>
                                 </tr>
                                 <tr>
-                                    <td class="align-middle">
-                                        <div class="d-flex align-items-center">
-                                            <div>
-                                                <img src="assets/images/avatar/avatar-1.jpg" alt=""
-                                                     class="avatar-md avatar rounded-circle">
-                                            </div>
-                                            <div class="ms-3 lh-1">
-                                                <h5 class=" mb-1">Jitu Chauhan</h5>
-                                                <p class="mb-0">jituchauhan@example.com</p>
-                                            </div>
-                                        </div>
+                                    <td>
+                                        <canvas class="canvasDoughnut" height="140" width="140" style="margin: 15px 10px 10px 0"></canvas>
                                     </td>
-                                    <td class="align-middle">Project Director</td>
-                                    <td class="align-middle">Today</td>
-                                    <td class="align-middle">
-                                        <div class="dropdown dropstart">
-                                            <a class="text-muted text-primary-hover" href="#" role="button"
-                                               id="dropdownTeamTwo" data-bs-toggle="dropdown" aria-haspopup="true"
-                                               aria-expanded="false">
-                                                <i class="icon-xxs" data-feather="more-vertical"></i>
-                                            </a>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownTeamTwo">
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Another action</a>
-                                                <a class="dropdown-item" href="#">Something else
-                                                    here</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="align-middle">
-                                        <div class="d-flex align-items-center">
-                                            <div>
-                                                <img src="assets/images/avatar/avatar-3.jpg" alt=""
-                                                     class="avatar-md avatar rounded-circle">
-                                            </div>
-                                            <div class="ms-3 lh-1">
-                                                <h5 class=" mb-1">Sandeep Chauhan</h5>
-                                                <p class="mb-0">sandeepchauhan@example.com</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="align-middle">Full- Stack Developer</td>
-                                    <td class="align-middle">Yesterday</td>
-                                    <td class="align-middle">
-                                        <div class="dropdown dropstart">
-                                            <a class="text-muted text-primary-hover" href="#" role="button"
-                                               id="dropdownTeamThree" data-bs-toggle="dropdown" aria-haspopup="true"
-                                               aria-expanded="false">
-                                                <i class="icon-xxs" data-feather="more-vertical"></i>
-                                            </a>
-
-                                            <div class="dropdown-menu" aria-labelledby="dropdownTeamThree">
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Another action</a>
-                                                <a class="dropdown-item" href="#">Something else
-                                                    here</a>
-                                            </div>
-                                        </div>
+                                    <td>
+                                        <table class="tile_info">
+                                            <tr>
+                                                <td>
+                                                    <p><i class="fa fa-square blue"></i>IOS </p>
+                                                </td>
+                                                <td>30%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <p><i class="fa fa-square green"></i>Android </p>
+                                                </td>
+                                                <td>10%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <p><i class="fa fa-square purple"></i>Blackberry </p>
+                                                </td>
+                                                <td>20%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <p><i class="fa fa-square aero"></i>Symbian </p>
+                                                </td>
+                                                <td>15%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <p><i class="fa fa-square red"></i>Others </p>
+                                                </td>
+                                                <td>30%</td>
+                                            </tr>
+                                        </table>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td class="align-middle">
-                                        <div class="d-flex align-items-center">
-
-                                            <div>
-                                                <img src="assets/images/avatar/avatar-4.jpg" alt=""
-                                                     class="avatar-md avatar rounded-circle">
-                                            </div>
-
-                                            <div class="ms-3 lh-1">
-                                                <h5 class=" mb-1">Amanda Darnell</h5>
-                                                <p class="mb-0">amandadarnell@example.com</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="align-middle">Digital Marketer</td>
-                                    <td class="align-middle">3 May, 2023</td>
-                                    <td class="align-middle">
-                                        <div class="dropdown dropstart">
-                                            <a class="text-muted text-primary-hover" href="#" role="button"
-                                               id="dropdownTeamFour" data-bs-toggle="dropdown" aria-haspopup="true"
-                                               aria-expanded="false">
-                                                <i class="icon-xxs" data-feather="more-vertical"></i>
-                                            </a>
-
-                                            <div class="dropdown-menu" aria-labelledby="dropdownTeamFour">
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Another action</a>
-                                                <a class="dropdown-item" href="#">Something else
-                                                    here</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-
-                                    <td class="align-middle">
-                                        <div class="d-flex align-items-center">
-
-                                            <div>
-                                                <img src="assets/images/avatar/avatar-5.jpg" alt=""
-                                                     class="avatar-md avatar rounded-circle">
-                                            </div>
-
-                                            <div class="ms-3 lh-1">
-                                                <h5 class=" mb-1">Patricia Murrill</h5>
-                                                <p class="mb-0">patriciamurrill@example.com</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="align-middle">Account Manager</td>
-                                    <td class="align-middle">3 May, 2023</td>
-                                    <td class="align-middle">
-                                        <div class="dropdown dropstart">
-                                            <a class="text-muted text-primary-hover" href="#" role="button"
-                                               id="dropdownTeamFive" data-bs-toggle="dropdown" aria-haspopup="true"
-                                               aria-expanded="false">
-                                                <i class="icon-xxs" data-feather="more-vertical"></i>
-                                            </a>
-
-                                            <div class="dropdown-menu" aria-labelledby="dropdownTeamFive">
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Another action</a>
-                                                <a class="dropdown-item" href="#">Something else
-                                                    here</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="align-middle border-bottom-0">
-                                        <div class="d-flex align-items-center">
-                                            <div>
-                                                <img src="assets/images/avatar/avatar-6.jpg" alt=""
-                                                     class="avatar-md avatar rounded-circle">
-                                            </div>
-                                            <div class="ms-3 lh-1">
-                                                <h5 class=" mb-1">Darshini Nair</h5>
-                                                <p class="mb-0">darshininair@example.com</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="align-middle border-bottom-0">Front End Developer</td>
-                                    <td class="align-middle border-bottom-0">3 May, 2023</td>
-                                    <td class="align-middle border-bottom-0">
-                                        <div class="dropdown dropstart">
-                                            <a class="text-muted text-primary-hover" href="#" role="button"
-                                               id="dropdownTeamSix" data-bs-toggle="dropdown" aria-haspopup="true"
-                                               aria-expanded="false">
-                                                <i class="icon-xxs" data-feather="more-vertical"></i>
-                                            </a>
-
-                                            <div class="dropdown-menu" aria-labelledby="dropdownTeamSix">
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Another action</a>
-                                                <a class="dropdown-item" href="#">Something else
-                                                    here</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
+
+
+                <div class="col-md-4 col-sm-4 ">
+                    <div class="x_panel tile fixed_height_320">
+                        <div class="x_title">
+                            <h2>Quick Settings</h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">Settings 1</a>
+                                        <a class="dropdown-item" href="#">Settings 2</a>
+                                    </div>
+                                </li>
+                                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <div class="dashboard-widget-content">
+                                <ul class="quick-list">
+                                    <li><i class="fa fa-calendar-o"></i><a href="#">Settings</a>
+                                    </li>
+                                    <li><i class="fa fa-bars"></i><a href="#">Subscription</a>
+                                    </li>
+                                    <li><i class="fa fa-bar-chart"></i><a href="#">Auto Renewal</a> </li>
+                                    <li><i class="fa fa-line-chart"></i><a href="#">Achievements</a>
+                                    </li>
+                                    <li><i class="fa fa-bar-chart"></i><a href="#">Auto Renewal</a> </li>
+                                    <li><i class="fa fa-line-chart"></i><a href="#">Achievements</a>
+                                    </li>
+                                    <li><i class="fa fa-area-chart"></i><a href="#">Logout</a>
+                                    </li>
+                                </ul>
+
+                                <div class="sidebar-widget">
+                                    <h4>Profile Completion</h4>
+                                    <canvas width="150" height="80" id="chart_gauge_01" class="" style="width: 160px; height: 100px;"></canvas>
+                                    <div class="goal-wrapper">
+                                        <span id="gauge-text" class="gauge-value pull-left">0</span>
+                                        <span class="gauge-value pull-left">%</span>
+                                        <span id="goal-text" class="goal-value pull-right">100%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-4 col-sm-4 ">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>Recent Activities <small>Sessions</small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">Settings 1</a>
+                                        <a class="dropdown-item" href="#">Settings 2</a>
+                                    </div>
+                                </li>
+                                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <div class="dashboard-widget-content">
+
+                                <ul class="list-unstyled timeline widget">
+                                    <li>
+                                        <div class="block">
+                                            <div class="block_content">
+                                                <h2 class="title">
+                                                    <a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
+                                                </h2>
+                                                <div class="byline">
+                                                    <span>13 hours ago</span> by <a>Jane Smith</a>
+                                                </div>
+                                                <p class="excerpt">Film festivals used to be do-or-die moments for movie makers. They were where you met the producers that could fund your project, and if the buyers liked your flick, they’d pay to Fast-forward and… <a>Read&nbsp;More</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="block">
+                                            <div class="block_content">
+                                                <h2 class="title">
+                                                    <a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
+                                                </h2>
+                                                <div class="byline">
+                                                    <span>13 hours ago</span> by <a>Jane Smith</a>
+                                                </div>
+                                                <p class="excerpt">Film festivals used to be do-or-die moments for movie makers. They were where you met the producers that could fund your project, and if the buyers liked your flick, they’d pay to Fast-forward and… <a>Read&nbsp;More</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="block">
+                                            <div class="block_content">
+                                                <h2 class="title">
+                                                    <a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
+                                                </h2>
+                                                <div class="byline">
+                                                    <span>13 hours ago</span> by <a>Jane Smith</a>
+                                                </div>
+                                                <p class="excerpt">Film festivals used to be do-or-die moments for movie makers. They were where you met the producers that could fund your project, and if the buyers liked your flick, they’d pay to Fast-forward and… <a>Read&nbsp;More</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="block">
+                                            <div class="block_content">
+                                                <h2 class="title">
+                                                    <a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
+                                                </h2>
+                                                <div class="byline">
+                                                    <span>13 hours ago</span> by <a>Jane Smith</a>
+                                                </div>
+                                                <p class="excerpt">Film festivals used to be do-or-die moments for movie makers. They were where you met the producers that could fund your project, and if the buyers liked your flick, they’d pay to Fast-forward and… <a>Read&nbsp;More</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-8 col-sm-8 ">
+
+
+
+                    <div class="row">
+
+                        <div class="col-md-12 col-sm-12 ">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>Visitors location <small>geo-presentation</small></h2>
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item" href="#">Settings 1</a>
+                                                <a class="dropdown-item" href="#">Settings 2</a>
+                                            </div>
+                                        </li>
+                                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+                                    <div class="dashboard-widget-content">
+                                        <div class="col-md-4 hidden-small">
+                                            <h2 class="line_30">125.7k Views from 60 countries</h2>
+
+                                            <table class="countries_list">
+                                                <tbody>
+                                                <tr>
+                                                    <td>United States</td>
+                                                    <td class="fs15 fw700 text-right">33%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>France</td>
+                                                    <td class="fs15 fw700 text-right">27%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Germany</td>
+                                                    <td class="fs15 fw700 text-right">16%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Spain</td>
+                                                    <td class="fs15 fw700 text-right">11%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Britain</td>
+                                                    <td class="fs15 fw700 text-right">10%</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div id="world-map-gdp" class="col-md-8 col-sm-12 " style="height:230px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+
+
+                        <!-- Start to do list -->
+                        <div class="col-md-6 col-sm-6 ">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>To Do List <small>Sample tasks</small></h2>
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item" href="#">Settings 1</a>
+                                                <a class="dropdown-item" href="#">Settings 2</a>
+                                            </div>
+                                        </li>
+                                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+
+                                    <div class="">
+                                        <ul class="to_do">
+                                            <li>
+                                                <p>
+                                                    <input type="checkbox" class="flat"> Schedule meeting with new client </p>
+                                            </li>
+                                            <li>
+                                                <p>
+                                                    <input type="checkbox" class="flat"> Create email address for new intern</p>
+                                            </li>
+                                            <li>
+                                                <p>
+                                                    <input type="checkbox" class="flat"> Have IT fix the network printer</p>
+                                            </li>
+                                            <li>
+                                                <p>
+                                                    <input type="checkbox" class="flat"> Copy backups to offsite location</p>
+                                            </li>
+                                            <li>
+                                                <p>
+                                                    <input type="checkbox" class="flat"> Food truck fixie locavors mcsweeney</p>
+                                            </li>
+                                            <li>
+                                                <p>
+                                                    <input type="checkbox" class="flat"> Food truck fixie locavors mcsweeney</p>
+                                            </li>
+                                            <li>
+                                                <p>
+                                                    <input type="checkbox" class="flat"> Create email address for new intern</p>
+                                            </li>
+                                            <li>
+                                                <p>
+                                                    <input type="checkbox" class="flat"> Have IT fix the network printer</p>
+                                            </li>
+                                            <li>
+                                                <p>
+                                                    <input type="checkbox" class="flat"> Copy backups to offsite location</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End to do list -->
+
+                        <!-- start of weather widget -->
+                        <div class="col-md-6 col-sm-6 ">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>Daily active users <small>Sessions</small></h2>
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item" href="#">Settings 1</a>
+                                                <a class="dropdown-item" href="#">Settings 2</a>
+                                            </div>
+                                        </li>
+                                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="temperature"><b>Monday</b>, 07:30 AM
+                                                <span>F</span>
+                                                <span><b>C</b></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="weather-icon">
+                                                <canvas height="84" width="84" id="partly-cloudy-day"></canvas>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <div class="weather-text">
+                                                <h2>Texas <br><i>Partly Cloudy Day</i></h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="weather-text pull-right">
+                                            <h3 class="degrees">23</h3>
+                                        </div>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+
+                                    <div class="row weather-days">
+                                        <div class="col-sm-2">
+                                            <div class="daily-weather">
+                                                <h2 class="day">Mon</h2>
+                                                <h3 class="degrees">25</h3>
+                                                <canvas id="clear-day" width="32" height="32"></canvas>
+                                                <h5>15 <i>km/h</i></h5>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="daily-weather">
+                                                <h2 class="day">Tue</h2>
+                                                <h3 class="degrees">25</h3>
+                                                <canvas height="32" width="32" id="rain"></canvas>
+                                                <h5>12 <i>km/h</i></h5>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="daily-weather">
+                                                <h2 class="day">Wed</h2>
+                                                <h3 class="degrees">27</h3>
+                                                <canvas height="32" width="32" id="snow"></canvas>
+                                                <h5>14 <i>km/h</i></h5>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="daily-weather">
+                                                <h2 class="day">Thu</h2>
+                                                <h3 class="degrees">28</h3>
+                                                <canvas height="32" width="32" id="sleet"></canvas>
+                                                <h5>15 <i>km/h</i></h5>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="daily-weather">
+                                                <h2 class="day">Fri</h2>
+                                                <h3 class="degrees">28</h3>
+                                                <canvas height="32" width="32" id="wind"></canvas>
+                                                <h5>11 <i>km/h</i></h5>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="daily-weather">
+                                                <h2 class="day">Sat</h2>
+                                                <h3 class="degrees">26</h3>
+                                                <canvas height="32" width="32" id="cloudy"></canvas>
+                                                <h5>10 <i>km/h</i></h5>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- end of weather widget -->
+                    </div>
+                </div>
             </div>
         </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+            <div class="pull-right">
+                Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+            </div>
+            <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
     </div>
 </div>
 
+<!-- jQuery -->
+<script src="{{asset('vendors/jquery/dist/jquery.min.js')}}"></script>
+<!-- Bootstrap -->
+<script src="{{asset('vendors/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
+<!-- FastClick -->
+<script src="{{asset('vendors/fastclick/lib/fastclick.js')}}"></script>
+<!-- NProgress -->
+<script src="{{asset('vendors/nprogress/nprogress.js')}}"></script>
+<!-- Chart.js -->
+<script src="{{asset('vendors/Chart.js/dist/Chart.min.js')}}"></script>
+<!-- gauge.js -->
+<script src="{{asset('vendors/gauge.js/dist/gauge.min.js')}}"></script>
+<!-- bootstrap-progressbar -->
+<script src="{{asset('vendors/bootstrap-progressbar/bootstrap-progressbar.min.js')}}"></script>
+<!-- iCheck -->
+<script src="{{asset('vendors/iCheck/icheck.min.js')}}"></script>
+<!-- Skycons -->
+<script src="{{asset('vendors/skycons/skycons.js')}}"></script>
+<!-- Flot -->
+<script src="{{asset('vendors/Flot/jquery.flot.js')}}"></script>
+<script src="{{asset('vendors/Flot/jquery.flot.pie.js')}}"></script>
+<script src="{{asset('vendors/Flot/jquery.flot.time.js')}}"></script>
+<script src="{{asset('vendors/Flot/jquery.flot.stack.js')}}"></script>
+<script src="{{asset('vendors/Flot/jquery.flot.resize.js')}}"></script>
+<!-- Flot plugins -->
+<script src="{{asset('vendors/flot.orderbars/js/jquery.flot.orderBars.js')}}"></script>
+<script src="{{asset('vendors/flot-spline/js/jquery.flot.spline.min.js')}}"></script>
+<script src="{{asset('vendors/flot.curvedlines/curvedLines.js')}}"></script>
+<!-- DateJS -->
+<script src="{{asset('vendors/DateJS/build/date.js')}}"></script>
+<!-- JQVMap -->
+<script src="{{asset('vendors/jqvmap/dist/jquery.vmap.js')}}"></script>
+<script src="{{asset('vendors/jqvmap/dist/maps/jquery.vmap.world.js')}}"></script>
+<script src="{{asset('vendors/jqvmap/examples/js/jquery.vmap.sampledata.js')}}"></script>
+<!-- bootstrap-daterangepicker -->
+<script src="{{asset('vendors/moment/min/moment.min.js')}}"></script>
+<script src="{{asset('vendors/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
 
-<!-- Scripts -->
-<!-- Libs JS -->
-
-<script src="{{asset('node_modules/jquery/dist/jquery.min.js')}}"></script>
-<script src="{{asset('node_modules/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
-<script src="{{asset('node_modules/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
-<script src="{{asset('node_modules/feather-icons/dist/feather.min.js')}}"></script>
-<script src="{{asset('node_modules/prismjs/prism.js')}}"></script>
-<script src="{{asset('node_modules/apexcharts/dist/apexcharts.min.js')}}"></script>
-<script src="{{asset('node_modules/dropzone/dist/min/dropzone.min.js')}}"></script>
-<script src="{{asset('node_modules/prismjs/plugins/toolbar/prism-toolbar.min.js')}}"></script>
-<script src="{{asset('node_modules/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js')}}"></script>
-
-
-
-
-<!-- Theme JS -->
-<!-- build:js @@webRoot/assets/js/theme.min.js -->
-<script src="{{asset('assets/js/main.js')}}"></script>
-<script src="{{asset('assets/js/feather.js')}}"></script>
-<script src="{{asset('assets/js/sidebarMenu.js')}}"></script>
-
-
-
-<!-- endbuild -->
-
+<!-- Custom Theme Scripts -->
+<script src="{{asset('build/js/custom.min.js')}}"></script>
 
 </body>
-
 </html>
+
