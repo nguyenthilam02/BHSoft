@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -27,7 +28,20 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'code' => 'required',
+            'name' => 'required',
+            'execution_time' => 'required|date',
+            'description' => 'string|nullable',
+            'status' => 'nullable|in:active,pending,done',
+        ]);
+        $data = $request->all();
+        $status = Project::create($data);
+        if ($status) {
+            return redirect()->route('project.index')->with('success', 'Banner created successfully');
+        } else {
+            return back()->with('error', 'Error occurred while creating banner');
+        }
     }
 
     /**

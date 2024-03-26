@@ -11,18 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('issues', function (Blueprint $table) {
+        Schema::create('documents', function (Blueprint $table) {
             $table->id();
             $table->string('code')->unique();
             $table->string('name');
-            $table->string('status')->default('new');
-            $table->string('classify');
-            $table->string('priority')->default('low');
+            $table->string('title');
             $table->text('description')->nullable();
+            $table->string('file_path')->nullable();
+            $table->date('created_date');
             $table->foreignId('project_id')->constrained();
-            $table->foreignId('user_id')->constrained();
-            $table->date('start_time');
-            $table->date('end_time');
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('issues');
+        Schema::dropIfExists('documents');
     }
 };
