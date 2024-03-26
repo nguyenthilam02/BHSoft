@@ -2,18 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Issue;
 use Illuminate\Http\Request;
 
-class IssueController extends Controller
+class ReportController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $issues = Issue::orderBy('created_at', 'desc')->get();
-        return view('issue.index', compact('issues'));
+        return view('report.index');
     }
 
     /**
@@ -21,7 +19,7 @@ class IssueController extends Controller
      */
     public function create()
     {
-        return view('issue.create');
+        return view('report.create');
     }
 
     /**

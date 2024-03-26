@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Thêm mới dự án</title>
+    <title>Thêm mới nhân viên</title>
 
     <!-- Bootstrap -->
     <link href="{{asset('/vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -75,7 +75,7 @@
                     <div class="col-md-12 col-sm-12 ">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2>Thêm dự án</h2>
+                                <h2>Thêm nhân viên</h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
@@ -97,12 +97,12 @@
 
                             <div class="x_content">
                                 <br/>
-                                <form id="demo-form2" action="{{route('project.store')}}" method="POST"
+                                <form id="demo-form2" action="{{route('issue.store')}}" method="POST"
                                       data-parsley-validate class="form-horizontal form-label-left">
                                     @csrf
                                     <div class="item form-group">
                                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Mã
-                                            dự án <span class="required">*</span>
+                                            issue <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 ">
                                             <input type="text" id="first-name" name="code" required="required"
@@ -110,12 +110,44 @@
                                         </div>
                                     </div>
                                     <div class="item form-group">
-                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Tên
-                                            dự án <span class="required">*</span>
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Tiêu đề <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 ">
-                                            <input type="text" id="last-name" name="name" required="required"
-                                                   class="form-control" value="{{old('name')}}">
+                                            <input type="text" id="last-name" name="title" required="required"
+                                                   class="form-control" value="{{old('title')}}">
+                                        </div>
+                                    </div>
+                                    <div class="item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Phân loại <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 ">
+
+                                            <label>
+                                                <input type="radio" name="classify" class="flat" > Checked
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="classify" class="flat"> Checked
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="classify" class="flat" checked> Checked
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Độ ưu tiên</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 ">
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="priority" class="flat"> Checked
+                                                </label>
+                                                <label>
+                                                    <input type="radio" name="priority" class="flat"> Checked
+                                                </label>
+                                                <label>
+                                                    <input type="radio" name="priority" class="flat" checked> Checked
+                                                </label>
+                                            </div>
                                         </div>
                                     </div>
                                     {{--                                    <div class="item form-group">--}}
@@ -138,7 +170,7 @@
                                     {{--                                        </div>--}}
                                     {{--                                    </div>--}}
                                     <div class="item form-group">
-                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Thời gian thực hiện
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Thời gian bắt đầu
                                             <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 ">
@@ -154,6 +186,53 @@
                                                     }, 60000);
                                                 }
                                             </script>
+                                        </div>
+                                    </div>
+                                    <div class="item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Thời gian kết thúc
+                                            <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 ">
+                                            <input id="birthday" name="execution_time" value="{{old('execution_time')}}" class="date-picker form-control"
+                                                   placeholder="dd-mm-yyyy" required="required" type="text"
+                                                   onfocus="this.type='date'" onmouseover="this.type='date'"
+                                                   onclick="this.type='date'" onblur="this.type='text'"
+                                                   onmouseout="timeFunctionLong(this)">
+                                            <script>
+                                                function timeFunctionLong(input) {
+                                                    setTimeout(function () {
+                                                        input.type = 'text';
+                                                    }, 60000);
+                                                }
+                                            </script>
+                                        </div>
+                                    </div>
+                                    <div class="item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Nhân viên
+                                            <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 ">
+                                            <select class="form-control">
+                                                <option>Choose option</option>
+                                                <option>Option one</option>
+                                                <option>Option two</option>
+                                                <option>Option three</option>
+                                                <option>Option four</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Dự án
+                                            <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 ">
+                                            <select class="form-control">
+                                                <option>Choose option</option>
+                                                <option>Option one</option>
+                                                <option>Option two</option>
+                                                <option>Option three</option>
+                                                <option>Option four</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="item form-group">
