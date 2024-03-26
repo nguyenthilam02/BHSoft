@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Report extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'code',
+        'title',
+        'description',
+        'file_path',
+        'created_date',
+        'project_id',
+        'user_id',
+    ];
 }
