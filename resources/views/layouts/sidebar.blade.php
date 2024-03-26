@@ -59,8 +59,8 @@
                     </li>
                     <li><a><i class="fa fa-table"></i> Nhân viên <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="tables.html">Danh sách nhân viên</a></li>
-                            <li><a href="tables_dynamic.html">Thêm nhân viên</a></li>
+                            <li><a href="{{route('staff.index')}}">Danh sách nhân viên</a></li>
+                            <li><a href="{{route('staff.create')}}">Thêm nhân viên</a></li>
                         </ul>
                     </li>
                     <li><a><i class="fa fa-bar-chart-o"></i> Báo cáo <span class="fa fa-chevron-down"></span></a>
