@@ -103,6 +103,7 @@
                                                     <th>Thời gian kết thúc</th>
                                                     <th>Nhân viên</th>
                                                     <th>Dự án</th>
+                                                    <th>Mô tả</th>
 {{--                                                    <th>Office</th>--}}
 {{--                                                    <th>Age</th>--}}
 {{--                                                    <th>Start date</th>--}}
@@ -110,16 +111,21 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-{{--                                                @foreach($issues as $item)--}}
-{{--                                                    <tr>--}}
-{{--                                                        <td>{{ $loop->index + 1 }}</td>--}}
-{{--                                                        <td>{{ $item->code }}</td>--}}
-{{--                                                        <td>{{ $item->name }}</td>--}}
-{{--                                                        <td>{{ $item->execution_time }}</td>--}}
-{{--                                                        <td>{{ $item->status }}</td>--}}
-{{--                                                        <td>{{ $item->description }}</td>--}}
-{{--                                                    </tr>--}}
-{{--                                                    @endforeach--}}
+                                                @foreach($issues as $item)
+                                                    <tr>
+                                                        <td>{{ $loop->index + 1 }}</td>
+                                                        <td>{{ $item->code }}</td>
+                                                        <td>{{ $item->title }}</td>
+                                                        <td>{{ $item->status }}</td>
+                                                        <td>{{ $item->classify }}</td>
+                                                        <td>{{ $item->priority }}</td>
+                                                        <td>{{ $item->start_time }}</td>
+                                                        <td>{{ $item->end_time }}</td>
+                                                        <td>{{ $item->user->name }}</td>
+                                                        <td>{{ $item->project->name }}</td>
+                                                        <td>{{ $item->description }}</td>
+                                                    </tr>
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                         </div>
