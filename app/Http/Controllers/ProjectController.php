@@ -75,6 +75,10 @@ class ProjectController extends Controller
     public function destroy(string $id)
     {
         $project = Project::findOrFail($id);
+
+        if ($project->numberOfIssues->count() || $project->numberOfReport->count()) {
+            return back()->with('error', 'Đang có issue hoặc báo cáo tham gia dự án này!');
+        }
         if ($project) {
             $status = $project->delete();
             if ($status) {
