@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
+use App\Models\Report;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ReportController extends Controller
@@ -11,7 +14,8 @@ class ReportController extends Controller
      */
     public function index()
     {
-        return view('report.index');
+        $reports = Report::orderBy('created_at', 'desc')->get();
+        return view('report.index', compact('reports'));
     }
 
     /**
@@ -19,7 +23,9 @@ class ReportController extends Controller
      */
     public function create()
     {
-        return view('report.create');
+        $users = User::orderBy('name', 'asc')->get();
+        $projects = Project::orderBy('name', 'asc')->get();
+        return view('report.create', compact('users', 'projects'));
     }
 
     /**
@@ -27,7 +33,30 @@ class ReportController extends Controller
      */
     public function store(Request $request)
     {
-        //
+//        dd($request->all());
+        $this->validate($request, [
+            'code' => 'required|unique:reports,code',
+            'title' => 'required',
+            'created_date' => 'required|date',
+            'file_path' => 'required|max:2048',
+            'user_id' => 'required',
+            'project_id' => 'required',
+            'description' => 'string|nullable',
+        ]);
+        $file = $request->file('file_path');
+        $destinationPath = 'public/file/';
+        $fileName = $file->getClientOriginalName();
+        $file->move($destinationPath, $fileName);
+//        $filePath = $file->store('uploads', 'public');
+
+        $data = $request->all();
+        $data['file_path'] = $fileName;
+        $status = Report::create($data);
+        if ($status) {
+            return redirect()->route('report.index')->with('success', 'Thêm mới báo cáo thành công');
+        } else {
+            return back()->with('error', 'Lỗi thêm mới báo cáo');
+        }
     }
 
     /**

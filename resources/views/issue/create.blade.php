@@ -195,7 +195,7 @@
                                             <select class="form-control" name="user_id" required="required">
                                                 <option value="">Chọn nhân viên</option>
                                                 @foreach($users as $item)
-                                                    <option value="{{$item->id}}">{{$item->name}}</option>
+                                                    <option value="{{$item->id}}" {{old('user_id') == $item->id ? 'selected' : ''}}>{{$item->name}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -208,7 +208,7 @@
                                             <select class="form-control" name="project_id" required="required">
                                                 <option value="">Chọn dự án</option>
                                                 @foreach($projects as $item)
-                                                    <option value="{{$item->id}}">{{$item->name}}</option>
+                                                    <option value="{{$item->id}}" {{old('project_id') == $item->id ? 'selected' : ''}}>{{$item->name}}</option>
                                                 @endforeach
                                             </select>
                                         </div>

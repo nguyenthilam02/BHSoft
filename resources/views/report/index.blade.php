@@ -67,7 +67,7 @@
                             <div class="x_title">
                                 <h2>Danh sách báo cáo</h2>
                                 <ul class="nav navbar-right panel_toolbox">
-                                    <li><a href="{{route('issue.create')}}" style="padding: 0; margin-right: 10px"><button class="btn btn-primary" type="button">Thêm mới</button></a></li>
+                                    <li><a href="{{route('report.create')}}" style="padding: 0; margin-right: 10px"><button class="btn btn-primary" type="button">Thêm mới</button></a></li>
 
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
@@ -94,32 +94,32 @@
                                                 <thead>
                                                 <tr>
                                                     <th>STT</th>
-                                                    <th>Mã issue</th>
+                                                    <th>Mã báo cáo</th>
                                                     <th>Tiêu đề</th>
-                                                    <th>Trạng thái</th>
-                                                    <th>Phân loại</th>
-                                                    <th>Độ ưu tiên</th>
-                                                    <th>Thời gian bắt đầu</th>
-                                                    <th>Thời gian kết thúc</th>
-                                                    <th>Nhân viên</th>
                                                     <th>Dự án</th>
-{{--                                                    <th>Office</th>--}}
-{{--                                                    <th>Age</th>--}}
-{{--                                                    <th>Start date</th>--}}
-{{--                                                    <th>Salary</th>--}}
+                                                    <th>Nhân viên gửi</th>
+                                                    <th>Ngày gửi</th>
+                                                    <th>File</th>
+                                                    <th>Mô tả</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-{{--                                                @foreach($issues as $item)--}}
-{{--                                                    <tr>--}}
-{{--                                                        <td>{{ $loop->index + 1 }}</td>--}}
-{{--                                                        <td>{{ $item->code }}</td>--}}
-{{--                                                        <td>{{ $item->name }}</td>--}}
-{{--                                                        <td>{{ $item->execution_time }}</td>--}}
-{{--                                                        <td>{{ $item->status }}</td>--}}
-{{--                                                        <td>{{ $item->description }}</td>--}}
-{{--                                                    </tr>--}}
-{{--                                                    @endforeach--}}
+                                                @foreach($reports as $item)
+                                                    <tr>
+                                                        <td>{{ $loop->index + 1 }}</td>
+                                                        <td>{{ $item->code }}</td>
+                                                        <td>{{ $item->title }}</td>
+                                                        <td>{{ $item->project->name }}</td>
+                                                        <td>{{ $item->user->name }}</td>
+                                                        <td>{{ $item->created_date }}</td>
+                                                        <td>
+                                                            <a href="{{ asset('public/file/' . $item->file_path) }}" download>
+                                                                {{ $item->file_path }}
+                                                            </a>
+                                                        </td>
+                                                        <td>{{ $item->description }}</td>
+                                                    </tr>
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                         </div>
