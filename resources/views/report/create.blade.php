@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Thêm mới issue</title>
+    <title>Thêm mới báo cáo</title>
 
     <!-- Bootstrap -->
     <link href="{{asset('/vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -75,7 +75,7 @@
                     <div class="col-md-12 col-sm-12 ">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2>Thêm issue</h2>
+                                <h2>Thêm báo cáo</h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
@@ -97,12 +97,12 @@
 
                             <div class="x_content">
                                 <br/>
-                                <form id="demo-form2" action="{{route('issue.store')}}" method="POST"
+                                <form id="demo-form2" action="{{route('report.store')}}" method="POST"  enctype="multipart/form-data"
                                       data-parsley-validate class="form-horizontal form-label-left">
                                     @csrf
                                     <div class="item form-group">
                                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Mã
-                                            issue <span class="required">*</span>
+                                            báo cáo <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 ">
                                             <input type="text" id="first-name" name="code" required="required"
@@ -118,106 +118,15 @@
                                         </div>
                                     </div>
                                     <div class="item form-group">
-                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Phân loại <span class="required">*</span>
-                                        </label>
-                                        <div class="col-md-6 col-sm-6 ">
-
-                                            <label>
-                                                <input type="radio" name="classify" class="flat" > Checked
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="classify" class="flat"> Checked
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="classify" class="flat" checked> Checked
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="item form-group">
-                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Độ ưu tiên</span>
-                                        </label>
-                                        <div class="col-md-6 col-sm-6 ">
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="priority" class="flat"> Checked
-                                                </label>
-                                                <label>
-                                                    <input type="radio" name="priority" class="flat"> Checked
-                                                </label>
-                                                <label>
-                                                    <input type="radio" name="priority" class="flat" checked> Checked
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {{--                                    <div class="item form-group">--}}
-                                    {{--                                        <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Middle Name / Initial</label>--}}
-                                    {{--                                        <div class="col-md-6 col-sm-6 ">--}}
-                                    {{--                                            <input id="middle-name" class="form-control" type="text" name="middle-name">--}}
-                                    {{--                                        </div>--}}
-                                    {{--                                    </div>--}}
-                                    {{--                                    <div class="item form-group">--}}
-                                    {{--                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Gender</label>--}}
-                                    {{--                                        <div class="col-md-6 col-sm-6 ">--}}
-                                    {{--                                            <div id="gender" class="btn-group" data-toggle="buttons">--}}
-                                    {{--                                                <label class="btn btn-secondary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">--}}
-                                    {{--                                                    <input type="radio" name="gender" value="male" class="join-btn"> &nbsp; Male &nbsp;--}}
-                                    {{--                                                </label>--}}
-                                    {{--                                                <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">--}}
-                                    {{--                                                    <input type="radio" name="gender" value="female" class="join-btn"> Female--}}
-                                    {{--                                                </label>--}}
-                                    {{--                                            </div>--}}
-                                    {{--                                        </div>--}}
-                                    {{--                                    </div>--}}
-                                    <div class="item form-group">
-                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Thời gian bắt đầu
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Nhân viên gửi
                                             <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 ">
-                                            <input id="birthday" name="execution_time" value="{{old('execution_time')}}" class="date-picker form-control"
-                                                   placeholder="dd-mm-yyyy" required="required" type="text"
-                                                   onfocus="this.type='date'" onmouseover="this.type='date'"
-                                                   onclick="this.type='date'" onblur="this.type='text'"
-                                                   onmouseout="timeFunctionLong(this)">
-                                            <script>
-                                                function timeFunctionLong(input) {
-                                                    setTimeout(function () {
-                                                        input.type = 'text';
-                                                    }, 60000);
-                                                }
-                                            </script>
-                                        </div>
-                                    </div>
-                                    <div class="item form-group">
-                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Thời gian kết thúc
-                                            <span class="required">*</span>
-                                        </label>
-                                        <div class="col-md-6 col-sm-6 ">
-                                            <input id="birthday" name="execution_time" value="{{old('execution_time')}}" class="date-picker form-control"
-                                                   placeholder="dd-mm-yyyy" required="required" type="text"
-                                                   onfocus="this.type='date'" onmouseover="this.type='date'"
-                                                   onclick="this.type='date'" onblur="this.type='text'"
-                                                   onmouseout="timeFunctionLong(this)">
-                                            <script>
-                                                function timeFunctionLong(input) {
-                                                    setTimeout(function () {
-                                                        input.type = 'text';
-                                                    }, 60000);
-                                                }
-                                            </script>
-                                        </div>
-                                    </div>
-                                    <div class="item form-group">
-                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Nhân viên
-                                            <span class="required">*</span>
-                                        </label>
-                                        <div class="col-md-6 col-sm-6 ">
-                                            <select class="form-control">
-                                                <option>Choose option</option>
-                                                <option>Option one</option>
-                                                <option>Option two</option>
-                                                <option>Option three</option>
-                                                <option>Option four</option>
+                                            <select class="form-control" name="user_id" required="required">
+                                                <option value="">Chọn nhân viên</option>
+                                                @foreach($users as $item)
+                                                    <option value="{{$item->id}}" {{old('user_id') == $item->id ? 'selected' : ''}}>{{$item->name}}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
@@ -226,15 +135,45 @@
                                             <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 ">
-                                            <select class="form-control">
-                                                <option>Choose option</option>
-                                                <option>Option one</option>
-                                                <option>Option two</option>
-                                                <option>Option three</option>
-                                                <option>Option four</option>
+                                            <select class="form-control" name="project_id" required="required">
+                                                <option value="">Chọn dự án</option>
+                                                @foreach($projects as $item)
+                                                    <option value="{{$item->id}}" {{old('project_id') == $item->id ? 'selected' : ''}}>{{$item->name}}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
+                                    <div class="item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Thời gian gửi
+                                            <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 ">
+                                            <input id="birthday" name="created_date" value="{{old('created_date')}}" class="date-picker form-control"
+                                                   placeholder="dd-mm-yyyy" required="required" type="text"
+                                                   onfocus="this.type='date'" onmouseover="this.type='date'"
+                                                   onclick="this.type='date'" onblur="this.type='text'"
+                                                   onmouseout="timeFunctionLong(this)">
+                                            <script>
+                                                function timeFunctionLong(input) {
+                                                    setTimeout(function () {
+                                                        input.type = 'text';
+                                                    }, 60000);
+                                                }
+                                            </script>
+                                        </div>
+                                    </div>
+                                    <div class="item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align">File tài liệu
+                                            <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 ">
+                                            <div class="custom-file">
+                                                <input type="file" name="file_path" required="required" class="custom-file-input" id="chooseFile">
+                                                <label class="custom-file-label" for="chooseFile">Select file</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div class="item form-group">
                                         <label class="col-form-label col-md-3 col-sm-3 label-align">Mô tả</label>
                                         <div class="col-md-6 col-sm-6 ">
@@ -261,12 +200,7 @@
         <!-- /page content -->
 
         <!-- footer content -->
-        <footer>
-            <div class="pull-right">
-                Quản Lý Dự Án by <a href="https://colorlib.com">Nguyễn Thị Lâm</a>
-            </div>
-            <div class="clearfix"></div>
-        </footer>
+        @include('layouts.footer_content')
         <!-- /footer content -->
     </div>
 </div>
@@ -307,5 +241,14 @@
 <!-- Custom Theme Scripts -->
 <script src="{{asset('/build/js/custom.min.js')}}"></script>
 
+
+<script>
+    $(document).ready(function(){
+        $('#chooseFile').change(function(e){
+            var fileName = e.target.files[0].name;
+            $('.custom-file-label').html(fileName);
+        });
+    });
+</script>
 </body>
 </html>

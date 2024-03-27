@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="icon" href="{{asset('production/images/logo.png')}}" type="image/ico" />
     <title>Danh sách issue</title>
 
     <!-- Bootstrap -->
@@ -65,7 +65,7 @@
                     <div class="col-md-12 col-sm-12 ">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2>Danh sách dự án</h2>
+                                <h2>Danh sách issue</h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li><a href="{{route('issue.create')}}" style="padding: 0; margin-right: 10px"><button class="btn btn-primary" type="button">Thêm mới</button></a></li>
 
@@ -103,6 +103,8 @@
                                                     <th>Thời gian kết thúc</th>
                                                     <th>Nhân viên</th>
                                                     <th>Dự án</th>
+                                                    <th>Mô tả</th>
+                                                    <th>Thao tác</th>
 {{--                                                    <th>Office</th>--}}
 {{--                                                    <th>Age</th>--}}
 {{--                                                    <th>Start date</th>--}}
@@ -110,16 +112,31 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-{{--                                                @foreach($issues as $item)--}}
-{{--                                                    <tr>--}}
-{{--                                                        <td>{{ $loop->index + 1 }}</td>--}}
-{{--                                                        <td>{{ $item->code }}</td>--}}
-{{--                                                        <td>{{ $item->name }}</td>--}}
-{{--                                                        <td>{{ $item->execution_time }}</td>--}}
-{{--                                                        <td>{{ $item->status }}</td>--}}
-{{--                                                        <td>{{ $item->description }}</td>--}}
-{{--                                                    </tr>--}}
-{{--                                                    @endforeach--}}
+                                                @foreach($issues as $item)
+                                                    <tr>
+                                                        <td>{{ $loop->index + 1 }}</td>
+                                                        <td>{{ $item->code }}</td>
+                                                        <td>{{ $item->title }}</td>
+                                                        <td>{{ $item->status }}</td>
+                                                        <td>{{ $item->classify }}</td>
+                                                        <td>{{ $item->priority }}</td>
+                                                        <td>{{ $item->start_time }}</td>
+                                                        <td>{{ $item->end_time }}</td>
+                                                        <td>{{ $item->user->name }}</td>
+                                                        <td>{{ $item->project->name }}</td>
+                                                        <td>{{ $item->description }}</td>
+                                                        <td>
+                                                            <a href="{{route('issue.edit', $item->id)}}">
+                                                                <button style="margin: 0" class="btn btn-round btn-warning"><i class="fa fa-edit"></i></button>
+                                                            </a>
+                                                            <form action="{{route('issue.destroy', $item->id)}}" method="POST" class="d-inline">
+                                                                @csrf
+                                                                @method('delete')
+                                                                <button type="button" style="margin: 0" class="deleteBtn btn btn-round btn-danger"><i class="fa fa-trash"></i></button>
+                                                            </form>
+                                                        </td>
+                                                    </tr>
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                         </div>
@@ -134,12 +151,7 @@
         <!-- /page content -->
 
         <!-- footer content -->
-        <footer>
-            <div class="pull-right">
-                Quản Lý Dự Án by <a href="https://colorlib.com">Nguyễn Thị Lâm</a>
-            </div>
-            <div class="clearfix"></div>
-        </footer>
+        @include('layouts.footer_content')
         <!-- /footer content -->
     </div>
 </div>
@@ -173,6 +185,6 @@
 
 <!-- Custom Theme Scripts -->
 <script src="{{asset('/build/js/custom.min.js')}}"></script>
-
+@include('layouts.swal_delete')
 </body>
 </html>

@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="icon" href="{{asset('production/images/logo.png')}}" type="image/ico" />
     <title>Thêm mới issue</title>
 
     <!-- Bootstrap -->
@@ -75,7 +75,7 @@
                     <div class="col-md-12 col-sm-12 ">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2>Thêm báo cáo</h2>
+                                <h2>Thêm issue</h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
@@ -121,60 +121,40 @@
                                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Phân loại <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 ">
-
-                                            <label>
-                                                <input type="radio" name="classify" class="flat" > Checked
+                                            <label class="mr-3">
+                                                <input value="task" type="radio" name="classify" class="flat" checked required="required"> Task
+                                            </label>
+                                            <label class="mr-3">
+                                                <input value="bug" type="radio" name="classify" class="flat" required="required"> Bug
                                             </label>
                                             <label>
-                                                <input type="radio" name="classify" class="flat"> Checked
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="classify" class="flat" checked> Checked
+                                                <input value="features" type="radio" name="classify" class="flat"  required="required"> Features
                                             </label>
                                         </div>
                                     </div>
                                     <div class="item form-group">
-                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Độ ưu tiên</span>
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Độ ưu tiên <span class="required">*</span></span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 ">
                                             <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="priority" class="flat"> Checked
+                                                <label class="mr-3">
+                                                    <input value="low" type="radio" name="priority" class="flat" checked> Thấp
+                                                </label>
+                                                <label class="mr-3">
+                                                    <input value="medium" type="radio" name="priority" class="flat"> Trung bình
                                                 </label>
                                                 <label>
-                                                    <input type="radio" name="priority" class="flat"> Checked
-                                                </label>
-                                                <label>
-                                                    <input type="radio" name="priority" class="flat" checked> Checked
+                                                    <input value="high" type="radio" name="priority" class="flat"> Cao
                                                 </label>
                                             </div>
                                         </div>
                                     </div>
-                                    {{--                                    <div class="item form-group">--}}
-                                    {{--                                        <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Middle Name / Initial</label>--}}
-                                    {{--                                        <div class="col-md-6 col-sm-6 ">--}}
-                                    {{--                                            <input id="middle-name" class="form-control" type="text" name="middle-name">--}}
-                                    {{--                                        </div>--}}
-                                    {{--                                    </div>--}}
-                                    {{--                                    <div class="item form-group">--}}
-                                    {{--                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Gender</label>--}}
-                                    {{--                                        <div class="col-md-6 col-sm-6 ">--}}
-                                    {{--                                            <div id="gender" class="btn-group" data-toggle="buttons">--}}
-                                    {{--                                                <label class="btn btn-secondary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">--}}
-                                    {{--                                                    <input type="radio" name="gender" value="male" class="join-btn"> &nbsp; Male &nbsp;--}}
-                                    {{--                                                </label>--}}
-                                    {{--                                                <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">--}}
-                                    {{--                                                    <input type="radio" name="gender" value="female" class="join-btn"> Female--}}
-                                    {{--                                                </label>--}}
-                                    {{--                                            </div>--}}
-                                    {{--                                        </div>--}}
-                                    {{--                                    </div>--}}
                                     <div class="item form-group">
                                         <label class="col-form-label col-md-3 col-sm-3 label-align">Thời gian bắt đầu
                                             <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 ">
-                                            <input id="birthday" name="execution_time" value="{{old('execution_time')}}" class="date-picker form-control"
+                                            <input id="birthday" name="start_time" value="{{old('start_time')}}" class="date-picker form-control"
                                                    placeholder="dd-mm-yyyy" required="required" type="text"
                                                    onfocus="this.type='date'" onmouseover="this.type='date'"
                                                    onclick="this.type='date'" onblur="this.type='text'"
@@ -193,7 +173,7 @@
                                             <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 ">
-                                            <input id="birthday" name="execution_time" value="{{old('execution_time')}}" class="date-picker form-control"
+                                            <input id="birthday" name="end_time" value="{{old('end_time')}}" class="date-picker form-control"
                                                    placeholder="dd-mm-yyyy" required="required" type="text"
                                                    onfocus="this.type='date'" onmouseover="this.type='date'"
                                                    onclick="this.type='date'" onblur="this.type='text'"
@@ -212,12 +192,11 @@
                                             <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 ">
-                                            <select class="form-control">
-                                                <option>Choose option</option>
-                                                <option>Option one</option>
-                                                <option>Option two</option>
-                                                <option>Option three</option>
-                                                <option>Option four</option>
+                                            <select class="form-control" name="user_id" required="required">
+                                                <option value="">Chọn nhân viên</option>
+                                                @foreach($users as $item)
+                                                    <option value="{{$item->id}}" {{old('user_id') == $item->id ? 'selected' : ''}}>{{$item->name}}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
@@ -226,12 +205,11 @@
                                             <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 ">
-                                            <select class="form-control">
-                                                <option>Choose option</option>
-                                                <option>Option one</option>
-                                                <option>Option two</option>
-                                                <option>Option three</option>
-                                                <option>Option four</option>
+                                            <select class="form-control" name="project_id" required="required">
+                                                <option value="">Chọn dự án</option>
+                                                @foreach($projects as $item)
+                                                    <option value="{{$item->id}}" {{old('project_id') == $item->id ? 'selected' : ''}}>{{$item->name}}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
@@ -261,12 +239,7 @@
         <!-- /page content -->
 
         <!-- footer content -->
-        <footer>
-            <div class="pull-right">
-                Quản Lý Dự Án by <a href="https://colorlib.com">Nguyễn Thị Lâm</a>
-            </div>
-            <div class="clearfix"></div>
-        </footer>
+        @include('layouts.footer_content')
         <!-- /footer content -->
     </div>
 </div>
