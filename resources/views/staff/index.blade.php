@@ -103,6 +103,7 @@
                                                     <th>Thời gian kết thúc</th>
                                                     <th>Nhân viên</th>
                                                     <th>Dự án</th>
+                                                    <th>Thao tác</th>
 {{--                                                    <th>Office</th>--}}
 {{--                                                    <th>Age</th>--}}
 {{--                                                    <th>Start date</th>--}}
@@ -118,6 +119,16 @@
 {{--                                                        <td>{{ $item->execution_time }}</td>--}}
 {{--                                                        <td>{{ $item->status }}</td>--}}
 {{--                                                        <td>{{ $item->description }}</td>--}}
+{{--<td>--}}
+{{--    <a href="{{route('staff.edit', $item->id)}}">--}}
+{{--        <button style="margin: 0" class="btn btn-round btn-warning"><i class="fa fa-edit"></i></button>--}}
+{{--    </a>--}}
+{{--    <form action="{{route('staff.destroy', $item->id)}}" method="POST" class="d-inline">--}}
+{{--        @csrf--}}
+{{--        @method('delete')--}}
+{{--        <button type="button" style="margin: 0" class="deleteBtn btn btn-round btn-danger"><i class="fa fa-trash"></i></button>--}}
+{{--    </form>--}}
+{{--</td>--}}
 {{--                                                    </tr>--}}
 {{--                                                    @endforeach--}}
                                                 </tbody>
@@ -168,6 +179,7 @@
 
 <!-- Custom Theme Scripts -->
 <script src="{{asset('/build/js/custom.min.js')}}"></script>
+@include('layouts.swal_delete')
 
 </body>
 </html>

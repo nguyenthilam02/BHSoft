@@ -39,9 +39,9 @@ class ProjectController extends Controller
         $data = $request->all();
         $status = Project::create($data);
         if ($status) {
-            return redirect()->route('project.index')->with('success', 'Thêm mới dự án thành công');
+            return redirect()->route('project.index')->with('success', 'Thêm mới dự án thành công!');
         } else {
-            return back()->with('error', 'Lỗi thêm mới dự án');
+            return back()->with('error', 'Lỗi thêm mới dự án!');
         }
     }
 
@@ -74,6 +74,16 @@ class ProjectController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $project = Project::findOrFail($id);
+        if ($project) {
+            $status = $project->delete();
+            if ($status) {
+                return redirect()->route('project.index')->with('success', 'Xóa dự án thành công!');
+            } else {
+                return back()->with('error', 'Lỗi xóa dự án!');
+            }
+        } else {
+            return back()->with('error', 'Không tồn tại dự án này!');
+        }
     }
 }

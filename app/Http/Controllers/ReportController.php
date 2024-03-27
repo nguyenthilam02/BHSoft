@@ -53,9 +53,9 @@ class ReportController extends Controller
         $data['file_path'] = $fileName;
         $status = Report::create($data);
         if ($status) {
-            return redirect()->route('report.index')->with('success', 'Thêm mới báo cáo thành công');
+            return redirect()->route('report.index')->with('success', 'Thêm mới báo cáo thành công!');
         } else {
-            return back()->with('error', 'Lỗi thêm mới báo cáo');
+            return back()->with('error', 'Lỗi thêm mới báo cáo!');
         }
     }
 
@@ -88,6 +88,16 @@ class ReportController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $report = Report::findOrFail($id);
+        if ($report) {
+            $status = $report->delete();
+            if ($status) {
+                return redirect()->route('report.index')->with('success', 'Xóa báo cáo thành công!');
+            } else {
+                return back()->with('error', 'Lỗi xóa báo cáo!');
+            }
+        } else {
+            return back()->with('error', 'Không tồn tại báo cáo này!');
+        }
     }
 }
