@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Issue;
+use App\Models\Project;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class IssueController extends Controller
@@ -21,7 +23,9 @@ class IssueController extends Controller
      */
     public function create()
     {
-        return view('issue.create');
+        $users = User::orderBy('name', 'asc')->get();
+        $projects = Project::orderBy('name', 'asc')->get();
+        return view('issue.create', compact('users', 'projects'));
     }
 
     /**
@@ -29,7 +33,24 @@ class IssueController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'code' => 'required|unique:issues,code',
+            'title' => 'required',
+            'classify' => 'required',
+            'priority' => 'required',
+            'start_time' => 'required|date',
+            'end_time' => 'required|date',
+            'user_id' => 'required',
+            'project_id' => 'required',
+            'description' => 'string|nullable',
+        ]);
+        $data = $request->all();
+        $status = Issue::create($data);
+        if ($status) {
+            return redirect()->route('issue.index')->with('success', 'Thêm mới issue thành công');
+        } else {
+            return back()->with('error', 'Lỗi thêm mới issue');
+        }
     }
 
     /**

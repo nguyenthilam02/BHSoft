@@ -11,6 +11,11 @@ class Issue extends Model
     protected $fillable = [
         'code',
         'title',
+        'classify',
+        'priority',
+        'start_time',
+        'end_time',
+        'status',
         'description',
         'file_path',
         'created_date',
