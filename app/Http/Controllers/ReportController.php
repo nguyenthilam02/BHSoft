@@ -6,6 +6,7 @@ use App\Models\Project;
 use App\Models\Report;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ReportController extends Controller
 {
@@ -35,7 +36,6 @@ class ReportController extends Controller
     {
 //        dd($request->all());
         $this->validate($request, [
-            'code' => 'required|unique:reports,code',
             'title' => 'required',
             'created_date' => 'required|date',
             'file_path' => 'required|max:2048',
@@ -47,10 +47,9 @@ class ReportController extends Controller
         $destinationPath = 'public/file/';
         $fileName = $file->getClientOriginalName();
         $file->move($destinationPath, $fileName);
-//        $filePath = $file->store('uploads', 'public');
-
         $data = $request->all();
         $data['file_path'] = $fileName;
+        $data['code'] = 'BC-' . time();
         $status = Report::create($data);
         if ($status) {
             return redirect()->route('report.index')->with('success', 'Thêm mới báo cáo thành công!');
@@ -72,7 +71,10 @@ class ReportController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $item = Report::findOrFail($id);
+        $users = User::orderBy('name', 'asc')->get();
+        $projects = Project::orderBy('name', 'asc')->get();
+        return view('report.edit', compact(['item', 'users', 'projects']));
     }
 
     /**
@@ -80,7 +82,33 @@ class ReportController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $report = Report::findOrFail($id);
+        if ($report) {
+            $this->validate($request, [
+                'title' => 'required',
+                'created_date' => 'required|date',
+                'file_path' => 'max:2048',
+                'user_id' => 'required',
+                'project_id' => 'required',
+                'description' => 'string|nullable',
+            ]);
+            $data = $request->all();
+            $file = $request->file('file_path');
+            if ($file) {
+                $destinationPath = 'public/file/';
+                $fileName = $file->getClientOriginalName();
+                $file->move($destinationPath, $fileName);
+                $data['file_path'] = $fileName;
+            }
+            $status = $report->fill($data)->save();
+            if ($status) {
+                return redirect()->route('report.index')->with('success', 'Sửa báo cáo thành công!');
+            } else {
+                return back()->with('error', 'Lỗi sửa báo cáo!');
+            }
+        } else {
+            return back()->with('error', 'Không tồn tại báo cáo này!');
+        }
     }
 
     /**

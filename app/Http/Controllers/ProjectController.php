@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ProjectController extends Controller
 {
@@ -58,7 +59,8 @@ class ProjectController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $item = Project::findOrFail($id);
+        return view('project.edit', compact('item'));
     }
 
     /**
@@ -66,7 +68,25 @@ class ProjectController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $project = Project::findOrFail($id);
+        if ($project) {
+            $this->validate($request, [
+                'code' => ['required', Rule::unique('projects')->ignore($project->id)],
+                'name' => 'required',
+                'execution_time' => 'required|date',
+                'description' => 'string|nullable',
+                'status' => 'nullable|in:active,pending,done',
+            ]);
+            $data = $request->all();
+            $status = $project->fill($data)->save();
+            if ($status) {
+                return redirect()->route('project.index')->with('success', 'Sửa dự án thành công!');
+            } else {
+                return back()->with('error', 'Lỗi sửa dự án!');
+            }
+        } else {
+            return back()->with('error', 'Không tồn tại dự án này!');
+        }
     }
 
     /**

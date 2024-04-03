@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="{{asset('production/images/logo.png')}}" type="image/ico" />
-    <title>Thêm mới issue</title>
+    <title>Sửa issue</title>
 
     <!-- Bootstrap -->
     <link href="{{asset('/vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -75,7 +75,7 @@
                     <div class="col-md-12 col-sm-12 ">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2>Thêm issue</h2>
+                                <h2>Sửa issue</h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
@@ -97,16 +97,17 @@
 
                             <div class="x_content">
                                 <br/>
-                                <form id="demo-form2" action="{{route('issue.store')}}" method="POST"
+                                <form id="demo-form2" action="{{route('issue.update', $item->id)}}" method="POST"
                                       data-parsley-validate class="form-horizontal form-label-left">
                                     @csrf
+                                    @method('PUT')
 {{--                                    <div class="item form-group">--}}
 {{--                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Mã--}}
 {{--                                            issue <span class="required">*</span>--}}
 {{--                                        </label>--}}
 {{--                                        <div class="col-md-6 col-sm-6 ">--}}
 {{--                                            <input type="text" id="first-name" name="code" required="required"--}}
-{{--                                                   class="form-control" value="{{old('code')}}">--}}
+{{--                                                   class="form-control" value="{{$item->code}}">--}}
 {{--                                        </div>--}}
 {{--                                    </div>--}}
                                     <div class="item form-group">
@@ -114,7 +115,7 @@
                                         </label>
                                         <div class="col-md-6 col-sm-6 ">
                                             <input type="text" id="last-name" name="title" required="required"
-                                                   class="form-control" value="{{old('title')}}">
+                                                   class="form-control" value="{{$item->title}}">
                                         </div>
                                     </div>
                                     <div class="item form-group">
@@ -122,13 +123,13 @@
                                         </label>
                                         <div class="col-md-6 col-sm-6 ">
                                             <label class="mr-3">
-                                                <input value="task" type="radio" name="classify" class="flat" checked required="required"> Task
+                                                <input value="task" type="radio" name="classify" class="flat" {{$item->classify == 'task' ? 'checked' : ''}} required="required"> Task
                                             </label>
                                             <label class="mr-3">
-                                                <input value="bug" type="radio" name="classify" class="flat" required="required"> Bug
+                                                <input value="bug" type="radio" name="classify" class="flat" {{$item->classify == 'bug' ? 'checked' : ''}} required="required"> Bug
                                             </label>
                                             <label>
-                                                <input value="features" type="radio" name="classify" class="flat"  required="required"> Features
+                                                <input value="features" type="radio" name="classify" class="flat" {{$item->classify == 'features' ? 'checked' : ''}}  required="required"> Features
                                             </label>
                                         </div>
                                     </div>
@@ -138,13 +139,13 @@
                                         <div class="col-md-6 col-sm-6 ">
                                             <div class="radio">
                                                 <label class="mr-3">
-                                                    <input value="low" type="radio" name="priority" class="flat" checked> Thấp
+                                                    <input value="low" type="radio" name="priority" class="flat" {{$item->priority == 'low' ? 'checked' : ''}}> Thấp
                                                 </label>
                                                 <label class="mr-3">
-                                                    <input value="medium" type="radio" name="priority" class="flat"> Trung bình
+                                                    <input value="medium" type="radio" name="priority" class="flat" {{$item->priority == 'medium' ? 'checked' : ''}}> Trung bình
                                                 </label>
                                                 <label>
-                                                    <input value="high" type="radio" name="priority" class="flat"> Cao
+                                                    <input value="high" type="radio" name="priority" class="flat" {{$item->priority == 'high' ? 'checked' : ''}}> Cao
                                                 </label>
                                             </div>
                                         </div>
@@ -154,7 +155,7 @@
                                             <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 ">
-                                            <input id="birthday" name="start_time" value="{{old('start_time')}}" class="date-picker form-control"
+                                            <input id="birthday" name="start_time" value="{{$item->start_time}}" class="date-picker form-control"
                                                    placeholder="dd-mm-yyyy" required="required" type="text"
                                                    onfocus="this.type='date'" onmouseover="this.type='date'"
                                                    onclick="this.type='date'" onblur="this.type='text'"
@@ -173,7 +174,7 @@
                                             <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 ">
-                                            <input id="birthday" name="end_time" value="{{old('end_time')}}" class="date-picker form-control"
+                                            <input id="birthday" name="end_time" value="{{$item->end_time}}" class="date-picker form-control"
                                                    placeholder="dd-mm-yyyy" required="required" type="text"
                                                    onfocus="this.type='date'" onmouseover="this.type='date'"
                                                    onclick="this.type='date'" onblur="this.type='text'"
@@ -194,8 +195,8 @@
                                         <div class="col-md-6 col-sm-6 ">
                                             <select class="form-control" name="user_id" required="required">
                                                 <option value="">Chọn nhân viên</option>
-                                                @foreach($users as $item)
-                                                    <option value="{{$item->id}}" {{old('user_id') == $item->id ? 'selected' : ''}}>{{$item->name}}</option>
+                                                @foreach($users as $user)
+                                                    <option value="{{$user->id}}" {{$item->user_id == $user->id ? 'selected' : ''}}>{{$user->name}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -207,8 +208,8 @@
                                         <div class="col-md-6 col-sm-6 ">
                                             <select class="form-control" name="project_id" required="required">
                                                 <option value="">Chọn dự án</option>
-                                                @foreach($projects as $item)
-                                                    <option value="{{$item->id}}" {{old('project_id') == $item->id ? 'selected' : ''}}>{{$item->name}}</option>
+                                                @foreach($projects as $project)
+                                                    <option value="{{$project->id}}" {{$item->project_id == $project->id ? 'selected' : ''}}>{{$project->name}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -219,9 +220,9 @@
                                         </label>
                                         <div class="col-md-6 col-sm-6 ">
                                             <select class="form-control" name="status" required="required">
-                                                <option value="new" {{old('status') == 'new' ? 'selected' : ''}}>Mới</option>
-                                                <option value="processing" {{old('status') == 'processing' ? 'selected' : ''}}>Đang thực hiện</option>
-                                                <option value="complete" {{old('status') == 'complete' ? 'selected' : ''}}>Hoàn thành</option>
+                                                <option value="new" {{$item->status == 'new' ? 'selected' : ''}}>Mới</option>
+                                                <option value="processing" {{$item->status == 'processing' ? 'selected' : ''}}>Đang thực hiện</option>
+                                                <option value="complete" {{$item->status == 'complete' ? 'selected' : ''}}>Hoàn thành</option>
                                             </select>
                                         </div>
                                     </div>
@@ -229,14 +230,14 @@
                                         <label class="col-form-label col-md-3 col-sm-3 label-align">Mô tả</label>
                                         <div class="col-md-6 col-sm-6 ">
                                             <textarea class="resizable_textarea form-control" name="description"
-                                                      placeholder="Nhập mô tả dự án của bạn tại đây...">{{old('description')}}</textarea>
+                                                      placeholder="Nhập mô tả dự án của bạn tại đây...">{{$item->description}}</textarea>
                                         </div>
                                     </div>
                                     <div class="ln_solid"></div>
                                     <div class="item form-group">
                                         <div class="col-md-6 col-sm-6 offset-md-3">
                                             {{--                                            <button class="btn btn-primary" type="reset">Reset</button>--}}
-                                            <button type="submit" class="btn btn-success">Thêm mới</button>
+                                            <button type="submit" class="btn btn-success">Sửa</button>
                                         </div>
                                     </div>
 
