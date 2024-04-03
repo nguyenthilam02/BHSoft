@@ -94,15 +94,12 @@
                                                 <thead>
                                                 <tr>
                                                     <th>STT</th>
-                                                    <th>Mã issue</th>
-                                                    <th>Tiêu đề</th>
-                                                    <th>Trạng thái</th>
-                                                    <th>Phân loại</th>
-                                                    <th>Độ ưu tiên</th>
-                                                    <th>Thời gian bắt đầu</th>
-                                                    <th>Thời gian kết thúc</th>
-                                                    <th>Nhân viên</th>
-                                                    <th>Dự án</th>
+                                                    <th>Mã nhân viên</th>
+                                                    <th>Họ tên</th>
+                                                    <th>Giới tính</th>
+                                                    <th>Sđt</th>
+                                                    <th>Email</th>
+                                                    <th>Địa chỉ</th>
                                                     <th>Thao tác</th>
 {{--                                                    <th>Office</th>--}}
 {{--                                                    <th>Age</th>--}}
@@ -111,26 +108,35 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-{{--                                                @foreach($issues as $item)--}}
-{{--                                                    <tr>--}}
-{{--                                                        <td>{{ $loop->index + 1 }}</td>--}}
-{{--                                                        <td>{{ $item->code }}</td>--}}
-{{--                                                        <td>{{ $item->name }}</td>--}}
-{{--                                                        <td>{{ $item->execution_time }}</td>--}}
-{{--                                                        <td>{{ $item->status }}</td>--}}
-{{--                                                        <td>{{ $item->description }}</td>--}}
-{{--<td>--}}
-{{--    <a href="{{route('staff.edit', $item->id)}}">--}}
-{{--        <button style="margin: 0" class="btn btn-round btn-warning"><i class="fa fa-edit"></i></button>--}}
-{{--    </a>--}}
-{{--    <form action="{{route('staff.destroy', $item->id)}}" method="POST" class="d-inline">--}}
-{{--        @csrf--}}
-{{--        @method('delete')--}}
-{{--        <button type="button" style="margin: 0" class="deleteBtn btn btn-round btn-danger"><i class="fa fa-trash"></i></button>--}}
-{{--    </form>--}}
-{{--</td>--}}
-{{--                                                    </tr>--}}
-{{--                                                    @endforeach--}}
+                                                @foreach($users as $item)
+                                                    <tr>
+                                                        <td>{{ $loop->index + 1 }}</td>
+                                                        <td>NV{{ $item->id }}</td>
+                                                        <td>{{ $item->name }}</td>
+                                                        <td>{{ $item->gender }}</td>
+                                                        <td>{{ $item->phone }}</td>
+                                                        <td>{{ $item->email }}</td>
+                                                        <td>{{ $item->address }}</td>
+                                                        <td>
+                                                            @if(Auth::user()->role == 'admin' && Auth::user()->id != $item->id)
+                                                                <a href="{{route('staff.edit', $item->id)}}">
+                                                                    <button style="margin: 0"
+                                                                            class="btn btn-round btn-warning"><i
+                                                                            class="fa fa-edit"></i></button>
+                                                                </a>
+                                                                <form action="{{route('staff.destroy', $item->id)}}"
+                                                                      method="POST" class="d-inline">
+                                                                    @csrf
+                                                                    @method('delete')
+                                                                    <button type="button" style="margin: 0"
+                                                                            class="deleteBtn btn btn-round btn-danger">
+                                                                        <i
+                                                                            class="fa fa-trash"></i></button>
+                                                                </form>
+                                                            @endif
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
                                                 </tbody>
                                             </table>
                                         </div>
