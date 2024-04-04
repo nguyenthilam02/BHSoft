@@ -99,12 +99,9 @@
                                                     <th>Giới tính</th>
                                                     <th>Sđt</th>
                                                     <th>Email</th>
+                                                    <th>Trạng thái</th>
                                                     <th>Địa chỉ</th>
                                                     <th>Thao tác</th>
-{{--                                                    <th>Office</th>--}}
-{{--                                                    <th>Age</th>--}}
-{{--                                                    <th>Start date</th>--}}
-{{--                                                    <th>Salary</th>--}}
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -116,9 +113,16 @@
                                                         <td>{{ $item->gender }}</td>
                                                         <td>{{ $item->phone }}</td>
                                                         <td>{{ $item->email }}</td>
+                                                        <td>
+                                                            @if($item->status == 1)
+                                                                <button type="button" class="btn btn-secondary btn-sm">Chưa được duyệt</button>
+                                                            @else
+                                                                <button type="button" class="btn btn-info btn-sm">Đã duyệt</button>
+                                                            @endif
+                                                        </td>
                                                         <td>{{ $item->address }}</td>
                                                         <td>
-                                                            @if(Auth::user()->role == 'admin' && Auth::user()->id != $item->id)
+                                                            @if(Auth::user()->role == 'admin')
                                                                 <a href="{{route('staff.edit', $item->id)}}">
                                                                     <button style="margin: 0"
                                                                             class="btn btn-round btn-warning"><i
