@@ -24,4 +24,8 @@ class Project extends Model
     public function numberOfReport(){
         return $this->hasMany(Report::class,'project_id','id');
     }
+
+    public function user(){
+        return $this->belongsTo(User::class,'user_id','id');
+    }
 }

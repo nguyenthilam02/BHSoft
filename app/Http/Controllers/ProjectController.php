@@ -38,7 +38,6 @@ class ProjectController extends Controller
             'user_id' => 'required',
             'execution_time' => 'required|date',
             'description' => 'string|nullable',
-            'status' => 'nullable|in:active,pending,done',
         ]);
         $data = $request->all();
         $status = Project::create($data);
@@ -62,8 +61,9 @@ class ProjectController extends Controller
      */
     public function edit(string $id)
     {
+        $users = User::orderBy('name', 'asc')->get();
         $item = Project::findOrFail($id);
-        return view('project.edit', compact('item'));
+        return view('project.edit', compact('item', 'users'));
     }
 
     /**
@@ -78,7 +78,7 @@ class ProjectController extends Controller
                 'name' => 'required',
                 'execution_time' => 'required|date',
                 'description' => 'string|nullable',
-                'status' => 'nullable|in:active,pending,done',
+                'status' => 'required',
             ]);
             $data = $request->all();
             $status = $project->fill($data)->save();
