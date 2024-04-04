@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 
@@ -16,6 +17,17 @@ class StaffController extends Controller
     {
         $users = User::orderBy('name', 'asc')->get();
         return view('staff.index', compact('users'));
+    }
+
+    public function editProfile()
+    {
+        $item = User::findOrFail(Auth::id());
+        return view('edit-profile', compact('item'));
+    }
+
+    public function updatePassword()
+    {
+        return view('update-password');
     }
 
     /**
@@ -42,6 +54,7 @@ class StaffController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'role' => 'user',
+            'status' => 2,
             'gender' => $request->gender,
             'address' => $request->address,
             'phone' => $request->phone

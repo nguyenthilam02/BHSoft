@@ -119,6 +119,31 @@
                                                    class="form-control" value="{{$item->name}}">
                                         </div>
                                     </div>
+                                    <div class="item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Nhân viên tham gia
+                                            <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 ">
+                                            <select class="form-control" name="user_id" required="required">
+                                                <option value="">Chọn nhân viên</option>
+                                                @foreach($users as $user)
+                                                    <option value="{{$user->id}}" {{$item->user_id == $user->id ? 'selected' : ''}}>{{$user->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Trạng thái
+                                            <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 ">
+                                            <select class="form-control" name="status" required="required">
+                                                <option value="started" {{$item->status == 'started' ? 'selected' : ''}}>Bắt đầu</option>
+                                                <option value="progress" {{$item->status == 'progress' ? 'selected' : ''}}>Đang triển khai</option>
+                                                <option value="complete" {{$item->status == 'complete' ? 'selected' : ''}}>Hoàn thành</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                     {{--                                    <div class="item form-group">--}}
                                     {{--                                        <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Middle Name / Initial</label>--}}
                                     {{--                                        <div class="col-md-6 col-sm-6 ">--}}

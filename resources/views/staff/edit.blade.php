@@ -146,6 +146,20 @@
                                             </label>
                                         </div>
                                     </div>
+                                    @if($item->status == 1)
+                                    <div class="item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Trạng thái <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 ">
+                                            <label>
+                                                <input type="radio" name="status" class="flat" value="2" {{$item->status == '2' ? 'checked' : ''}} > Duyệt
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="status" class="flat" value="1" {{$item->status == '1' ? 'checked' : ''}} > Không duyệt
+                                            </label>
+                                        </div>
+                                    </div>
+                                    @endif
                                     <div class="item form-group">
                                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Số điện thoại <span class="required">*</span>
                                         </label>
@@ -178,7 +192,7 @@
                                         <label class="col-form-label col-md-3 col-sm-3 label-align">Địa chỉ</label>
                                         <div class="col-md-6 col-sm-6 ">
                                             <textarea class="resizable_textarea form-control" name="address"
-                                                      placeholder="Nhập mô tả dự án của bạn tại đây...">{{$item->address}}</textarea>
+                                                      placeholder="Nhập địa chỉ của bạn tại đây...">{{$item->address}}</textarea>
                                         </div>
                                     </div>
                                     <div class="ln_solid"></div>
