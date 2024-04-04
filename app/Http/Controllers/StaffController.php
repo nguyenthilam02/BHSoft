@@ -25,6 +25,11 @@ class StaffController extends Controller
         return view('edit-profile', compact('item'));
     }
 
+    public function updatePassword()
+    {
+        return view('update-password');
+    }
+
     /**
      * Show the form for creating a new resource.
      */

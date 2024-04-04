@@ -15,7 +15,7 @@
 {{--                            <span class="badge bg-red pull-right">50%</span>--}}
 {{--                            <span>Settings</span>--}}
 {{--                        </a>--}}
-{{--                        <a class="dropdown-item"  href="javascript:;">Help</a>--}}
+                        <a class="dropdown-item"  href="{{route('update-password')}}">Đổi mật khẩu</a>
 
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
