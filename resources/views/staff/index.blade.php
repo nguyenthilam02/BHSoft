@@ -67,8 +67,9 @@
                             <div class="x_title">
                                 <h2>Danh sách nhân viên</h2>
                                 <ul class="nav navbar-right panel_toolbox">
+                                    @if(Auth::user()->role == 'admin')
                                     <li><a href="{{route('staff.create')}}" style="padding: 0; margin-right: 10px"><button class="btn btn-primary" type="button">Thêm mới</button></a></li>
-
+                                    @endif
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
 {{--                                    <li class="dropdown">--}}
@@ -110,7 +111,15 @@
                                                         <td>{{ $loop->index + 1 }}</td>
                                                         <td>NV{{ $item->id }}</td>
                                                         <td>{{ $item->name }}</td>
-                                                        <td>{{ $item->gender }}</td>
+                                                        <td>
+                                                            @if($item->gender == 'female')
+                                                                Nữ
+                                                            @elseif($item->gender == 'male')
+                                                                Nam
+                                                            @else
+                                                                Khác
+                                                            @endif
+                                                        </td>
                                                         <td>{{ $item->phone }}</td>
                                                         <td>{{ $item->email }}</td>
                                                         <td>
