@@ -97,6 +97,7 @@
                                                     <th>STT</th>
                                                     <th>Mã nhân viên</th>
                                                     <th>Họ tên</th>
+                                                    <th>Chức vụ</th>
                                                     <th>Giới tính</th>
                                                     <th>Sđt</th>
                                                     <th>Email</th>
@@ -111,6 +112,15 @@
                                                         <td>{{ $loop->index + 1 }}</td>
                                                         <td>NV{{ $item->id }}</td>
                                                         <td>{{ $item->name }}</td>
+                                                        <td>
+                                                            @if($item->role == 'admin')
+                                                                Admin
+                                                            @elseif($item->role == 'leader')
+                                                                Leader
+                                                            @elseif($item->role == 'member')
+                                                                Member
+                                                            @endif
+                                                        </td>
                                                         <td>
                                                             @if($item->gender == 'female')
                                                                 Nữ
