@@ -99,6 +99,21 @@
                                         </div>
                                     </div>
                                     <div class="item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Chức vụ<span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 ">
+                                            <label>
+                                                <input type="radio" name="role" class="flat" value="admin" > Admin
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="role" class="flat" value="leader" > Leader
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="role" class="flat" value="member" checked> Member
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="item form-group">
                                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Email <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 ">

@@ -37,7 +37,9 @@
                     <li><a><i class="fa fa-edit"></i> Dự án <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{route('project.index')}}">Danh sách dự án</a></li>
+                            @if(Auth::user()->role != 'member')
                             <li><a href="{{route('project.create')}}">Thêm dự án</a></li>
+                            @endif
                             {{--                                    <li><a href="form_validation.html">Form Validation</a></li>--}}
                             {{--                                    <li><a href="form_wizards.html">Form Wizard</a></li>--}}
                             {{--                                    <li><a href="form_upload.html">Form Upload</a></li>--}}
@@ -60,7 +62,9 @@
                     <li><a><i class="fa fa-table"></i> Nhân viên <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{route('staff.index')}}">Danh sách nhân viên</a></li>
+                            @if(Auth::user()->role == 'admin')
                             <li><a href="{{route('staff.create')}}">Thêm nhân viên</a></li>
+                            @endif
                         </ul>
                     </li>
                     <li><a><i class="fa fa-bar-chart-o"></i> Báo cáo <span class="fa fa-chevron-down"></span></a>
