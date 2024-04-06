@@ -88,7 +88,7 @@
                                     {{--                                            </li>--}}
                                     {{--                                        </ul>--}}
                                     {{--                                    </li>--}}
-                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                    <li><a href="{{route('issue.index')}}" class="close-link"><i class="fa fa-close"></i></a>
                                     </li>
                                 </ul>
 
