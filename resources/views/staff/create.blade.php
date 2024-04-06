@@ -79,7 +79,7 @@
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
-                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                    <li><a href="{{route('staff.index')}}" class="close-link"><i class="fa fa-close"></i></a>
                                     </li>
                                 </ul>
                                 <div class="clearfix"></div>
@@ -145,7 +145,7 @@
                                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Số điện thoại <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 ">
-                                            <input type="number" name="phone" required="required"
+                                            <input type="text" name="phone" required="required"
                                                    class="form-control" value="{{old('phone')}}">
                                         </div>
                                     </div>
