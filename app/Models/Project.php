@@ -14,7 +14,7 @@ class Project extends Model
         'execution_time',
         'status',
         'description',
-        'user_id'
+//        'user_id'
     ];
 
     public function numberOfIssues(){
@@ -25,7 +25,8 @@ class Project extends Model
         return $this->hasMany(Report::class,'project_id','id');
     }
 
-    public function user(){
-        return $this->belongsTo(User::class,'user_id','id');
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'project_user', 'project_id', 'user_id');
     }
 }

@@ -123,10 +123,9 @@
                                             <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 ">
-                                            <select class="form-control" name="user_id" required="required">
-                                                <option value="">Chọn nhân viên</option>
+                                            <select class="form-control" multiple name="user_id[]" required="required">
                                                 @foreach($users as $item)
-                                                    <option value="{{$item->id}}" {{old('user_id') == $item->id ? 'selected' : ''}}>{{$item->name}}</option>
+                                                    <option value="{{$item->id}}" >{{$item->name}} - {{$item->id}}</option>
                                                 @endforeach
                                             </select>
                                         </div>

@@ -102,7 +102,7 @@
                                                     <th>Mã báo cáo</th>
                                                     <th>Tiêu đề</th>
                                                     <th>Dự án</th>
-                                                    <th>Nhân viên gửi</th>
+                                                    <th>Người gửi</th>
                                                     <th>Ngày gửi</th>
                                                     <th>File</th>
                                                     <th>Mô tả</th>
