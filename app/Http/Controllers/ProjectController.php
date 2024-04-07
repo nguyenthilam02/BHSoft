@@ -35,13 +35,14 @@ class ProjectController extends Controller
         $this->validate($request, [
             'code' => 'required|unique:projects,code',
             'name' => 'required',
-            'user_id' => 'required',
             'execution_time' => 'required|date',
             'description' => 'string|nullable',
         ]);
+
         $data = $request->all();
         $status = Project::create($data);
         if ($status) {
+            $status->users()->sync($request->user_id);
             return redirect()->route('project.index')->with('success', 'Thêm mới dự án thành công!');
         } else {
             return back()->with('error', 'Lỗi thêm mới dự án!');
@@ -83,6 +84,7 @@ class ProjectController extends Controller
             $data = $request->all();
             $status = $project->fill($data)->save();
             if ($status) {
+                $project->users()->sync($request->user_id);
                 return redirect()->route('project.index')->with('success', 'Sửa dự án thành công!');
             } else {
                 return back()->with('error', 'Lỗi sửa dự án!');
