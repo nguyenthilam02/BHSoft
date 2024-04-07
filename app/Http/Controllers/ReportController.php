@@ -34,7 +34,6 @@ class ReportController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request->all());
         $this->validate($request, [
             'title' => 'required',
             'created_date' => 'required|date',
