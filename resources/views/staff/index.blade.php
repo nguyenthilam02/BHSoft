@@ -32,6 +32,7 @@
     <style>
         table.table-bordered.dataTable th, table.table-bordered.dataTable td {
             text-align: center;
+            white-space: nowrap;
         }
     </style>
 </head>
@@ -146,7 +147,7 @@
                                                             @endif
                                                         </td>
                                                         <td>{{ $item->address }}</td>
-                                                        <td>
+                                                        <td style="display: flex; justify-content: space-between;">
                                                             @if(Auth::user()->role == 'admin')
                                                                 <a href="{{route('staff.edit', $item->id)}}">
                                                                     <button style="margin: 0"

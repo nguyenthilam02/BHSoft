@@ -89,6 +89,12 @@
                     @csrf
                     <h1>Create Account</h1>
                     <div>
+                        <input class="form-control" placeholder="Phone" type="text" name="phone" :value="old('phone')"
+                               required
+                               autofocus autocomplete="phone"/>
+                        <x-input-error :messages="$errors->get('phone')" class="mt-2"/>
+                    </div>
+                    <div>
                         <input type="text" class="form-control" placeholder="Name" name="name" value="{{old('name')}}"
                                required autofocus autocomplete="name"/>
                         <x-input-error :messages="$errors->get('name')" class="mt-2"/>
