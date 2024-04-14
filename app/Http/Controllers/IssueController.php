@@ -82,6 +82,16 @@ class IssueController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $issue = Issue::findOrFail($id);
+        if ($issue) {
+            $status = $issue->delete();
+            if ($status) {
+                return redirect()->route('issue.index')->with('success', 'Xóa issue thành công!');
+            } else {
+                return back()->with('error', 'Lỗi xóa issue!');
+            }
+        } else {
+            return back()->with('error', 'Không tồn tại issue này!');
+        }
     }
 }

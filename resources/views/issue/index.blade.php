@@ -104,6 +104,7 @@
                                                     <th>Nhân viên</th>
                                                     <th>Dự án</th>
                                                     <th>Mô tả</th>
+                                                    <th>Thao tác</th>
 {{--                                                    <th>Office</th>--}}
 {{--                                                    <th>Age</th>--}}
 {{--                                                    <th>Start date</th>--}}
@@ -124,6 +125,16 @@
                                                         <td>{{ $item->user->name }}</td>
                                                         <td>{{ $item->project->name }}</td>
                                                         <td>{{ $item->description }}</td>
+                                                        <td>
+                                                            <a href="{{route('issue.edit', $item->id)}}">
+                                                                <button style="margin: 0" class="btn btn-round btn-warning"><i class="fa fa-edit"></i></button>
+                                                            </a>
+                                                            <form action="{{route('issue.destroy', $item->id)}}" method="POST" class="d-inline">
+                                                                @csrf
+                                                                @method('delete')
+                                                                <button type="button" style="margin: 0" class="deleteBtn btn btn-round btn-danger"><i class="fa fa-trash"></i></button>
+                                                            </form>
+                                                        </td>
                                                     </tr>
                                                     @endforeach
                                                 </tbody>
@@ -174,6 +185,6 @@
 
 <!-- Custom Theme Scripts -->
 <script src="{{asset('/build/js/custom.min.js')}}"></script>
-
+@include('layouts.swal_delete')
 </body>
 </html>
