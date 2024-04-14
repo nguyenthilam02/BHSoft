@@ -71,7 +71,18 @@
     <!-- Custom Theme Style -->
     <link href="{{asset('build/css/custom.min.css')}}" rel="stylesheet">
 </head>
+<style> 
+/* input[type=email] {
+  width: 100%;
+  padding: 12px 20px;
+  background-color: white;
+  color: black;
+}
 
+input[type=email]:focus {
+  background-color: white;
+} */
+</style>
 <body class="login">
 <div>
     <a class="hiddenanchor" id="signup"></a>
@@ -83,9 +94,18 @@
                 @include('layouts.notification')
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
-                    <h1>Login Form</h1>
+                    <a class="center">
+                        <img src="http://127.0.0.1:8000/production/images/logo.png" style="width: 50px">
+                        <!-- <span>BH SOFT</span> -->
+                    </a>
+                    <h2 style="color:black;font-size:2em;font-weight:400">Quản lý dự án</h2>
+                    <h2 style="color:black;font-weight:700">Đăng nhập</h2>
+                    <br></br>
+                    
                     <div>
-                        <input class="form-control" placeholder="Email" type="email" name="email" :value="old('email')"
+                        <input    
+                        class="form-control"
+                        placeholder="Email" type="email" name="email" :value="old('email')"
                                required
                                autofocus autocomplete="username"/>
                         <x-input-error :messages="$errors->get('email')" class="mt-2"/>
@@ -95,20 +115,30 @@
                                autocomplete="current-password"/>
                         <x-input-error :messages="$errors->get('password')" class="mt-2"/>
                     </div>
+                    <div align="left">
+                        <p class="change_link">
+                            <a href="{{ route('password.request') }}" class="to_register"> Quên mật khẩu? </a>
+                        </p>
+                    </div>
                     <div>
-                        <button class="btn btn-default submit" type="submit"><a>Log in</a></button>
-                        {{--                        <a class="reset_pass" href="#">Lost your password?</a>--}}
+                        <button 
+                        class="btn btn-default submit" 
+                        type="submit" 
+                        style="width: 100%;color: white;font-size: 16px;padding: 8px 32px;background-color: #414DCD;text-align: center;border-radius: 8px;">
+                            Đăng nhập
+                        </button>
+                        {{--<a class="reset_pass" href="#">Lost your password?</a>--}}
                     </div>
 
                     <div class="clearfix"></div>
 
 
                     <div class="separator">
-                        <p class="change_link">
-                            <a href="{{ route('password.request') }}" class="to_register"> Forgot your password? </a>
-                        </p>
-                        <p class="change_link">New to site?
-                            <a href="{{ route('register') }}" class="to_register"> Create Account </a>
+                        <!-- <p class="change_link">
+                            <a href="{{ route('password.request') }}" class="to_register"> Quên mật khẩu? </a>
+                        </p> -->
+                        <p class="change_link">Bạn chưa có tài khoản?
+                            <a href="{{ route('register') }}" class="to_register"> Tạo tài khoản mới </a>
                         </p>
 
                         <div class="clearfix"></div>
