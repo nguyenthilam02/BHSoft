@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Danh sách dự án</title>
+    <title>Danh sách nhân viên</title>
 
     <!-- Bootstrap -->
     <link href="cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
@@ -65,9 +65,9 @@
                     <div class="col-md-12 col-sm-12 ">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2>Danh sách dự án</h2>
+                                <h2>Danh sách nhân viên</h2>
                                 <ul class="nav navbar-right panel_toolbox">
-                                    <li><a href="{{route('project.create')}}" style="padding: 0; margin-right: 10px"><button class="btn btn-primary" type="button">Thêm mới</button></a></li>
+                                    <li><a href="{{route('staff.create')}}" style="padding: 0; margin-right: 10px"><button class="btn btn-primary" type="button">Thêm mới</button></a></li>
 
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
@@ -94,11 +94,15 @@
                                                 <thead>
                                                 <tr>
                                                     <th>STT</th>
-                                                    <th>Mã dự án</th>
-                                                    <th>Tên dự án</th>
-                                                    <th>Thời gian thực hiện</th>
+                                                    <th>Mã issue</th>
+                                                    <th>Tiêu đề</th>
                                                     <th>Trạng thái</th>
-                                                    <th>Mô tả</th>
+                                                    <th>Phân loại</th>
+                                                    <th>Độ ưu tiên</th>
+                                                    <th>Thời gian bắt đầu</th>
+                                                    <th>Thời gian kết thúc</th>
+                                                    <th>Nhân viên</th>
+                                                    <th>Dự án</th>
 {{--                                                    <th>Office</th>--}}
 {{--                                                    <th>Age</th>--}}
 {{--                                                    <th>Start date</th>--}}
@@ -106,16 +110,16 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                @foreach($projects as $item)
-                                                    <tr>
-                                                        <td>{{ $loop->index + 1 }}</td>
-                                                        <td>{{ $item->code }}</td>
-                                                        <td>{{ $item->name }}</td>
-                                                        <td>{{ $item->execution_time }}</td>
-                                                        <td>{{ $item->status }}</td>
-                                                        <td>{{ $item->description }}</td>
-                                                    </tr>
-                                                    @endforeach
+{{--                                                @foreach($issues as $item)--}}
+{{--                                                    <tr>--}}
+{{--                                                        <td>{{ $loop->index + 1 }}</td>--}}
+{{--                                                        <td>{{ $item->code }}</td>--}}
+{{--                                                        <td>{{ $item->name }}</td>--}}
+{{--                                                        <td>{{ $item->execution_time }}</td>--}}
+{{--                                                        <td>{{ $item->status }}</td>--}}
+{{--                                                        <td>{{ $item->description }}</td>--}}
+{{--                                                    </tr>--}}
+{{--                                                    @endforeach--}}
                                                 </tbody>
                                             </table>
                                         </div>

@@ -59,14 +59,14 @@
                     </li>
                     <li><a><i class="fa fa-table"></i> Nhân viên <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="tables.html">Danh sách nhân viên</a></li>
-                            <li><a href="tables_dynamic.html">Thêm nhân viên</a></li>
+                            <li><a href="{{route('staff.index')}}">Danh sách nhân viên</a></li>
+                            <li><a href="{{route('staff.create')}}">Thêm nhân viên</a></li>
                         </ul>
                     </li>
                     <li><a><i class="fa fa-bar-chart-o"></i> Báo cáo <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="chartjs.html">Danh sách báo cáo</a></li>
-                            <li><a href="chartjs2.html">Thêm báo cáo</a></li>
+                            <li><a href="{{route('report.index')}}">Danh sách báo cáo</a></li>
+                            <li><a href="{{route('report.create')}}">Thêm báo cáo</a></li>
                             {{--                                    <li><a href="morisjs.html">Moris JS</a></li>--}}
                             {{--                                    <li><a href="echarts.html">ECharts</a></li>--}}
                             {{--                                    <li><a href="other_charts.html">Other Charts</a></li>--}}
