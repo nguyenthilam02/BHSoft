@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="icon" href="{{asset('production/images/logo.png')}}" type="image/ico" />
     <title>Danh sách báo cáo</title>
 
     <!-- Bootstrap -->
@@ -67,7 +67,7 @@
                             <div class="x_title">
                                 <h2>Danh sách báo cáo</h2>
                                 <ul class="nav navbar-right panel_toolbox">
-                                    <li><a href="{{route('issue.create')}}" style="padding: 0; margin-right: 10px"><button class="btn btn-primary" type="button">Thêm mới</button></a></li>
+                                    <li><a href="{{route('report.create')}}" style="padding: 0; margin-right: 10px"><button class="btn btn-primary" type="button">Thêm mới</button></a></li>
 
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
@@ -94,32 +94,43 @@
                                                 <thead>
                                                 <tr>
                                                     <th>STT</th>
-                                                    <th>Mã issue</th>
+                                                    <th>Mã báo cáo</th>
                                                     <th>Tiêu đề</th>
-                                                    <th>Trạng thái</th>
-                                                    <th>Phân loại</th>
-                                                    <th>Độ ưu tiên</th>
-                                                    <th>Thời gian bắt đầu</th>
-                                                    <th>Thời gian kết thúc</th>
-                                                    <th>Nhân viên</th>
                                                     <th>Dự án</th>
-{{--                                                    <th>Office</th>--}}
-{{--                                                    <th>Age</th>--}}
-{{--                                                    <th>Start date</th>--}}
-{{--                                                    <th>Salary</th>--}}
+                                                    <th>Nhân viên gửi</th>
+                                                    <th>Ngày gửi</th>
+                                                    <th>File</th>
+                                                    <th>Mô tả</th>
+                                                    <th>Thao tác</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-{{--                                                @foreach($issues as $item)--}}
-{{--                                                    <tr>--}}
-{{--                                                        <td>{{ $loop->index + 1 }}</td>--}}
-{{--                                                        <td>{{ $item->code }}</td>--}}
-{{--                                                        <td>{{ $item->name }}</td>--}}
-{{--                                                        <td>{{ $item->execution_time }}</td>--}}
-{{--                                                        <td>{{ $item->status }}</td>--}}
-{{--                                                        <td>{{ $item->description }}</td>--}}
-{{--                                                    </tr>--}}
-{{--                                                    @endforeach--}}
+                                                @foreach($reports as $item)
+                                                    <tr>
+                                                        <td>{{ $loop->index + 1 }}</td>
+                                                        <td>{{ $item->code }}</td>
+                                                        <td>{{ $item->title }}</td>
+                                                        <td>{{ $item->project->name }}</td>
+                                                        <td>{{ $item->user->name }}</td>
+                                                        <td>{{ $item->created_date }}</td>
+                                                        <td>
+                                                            <a href="{{ asset('public/file/' . $item->file_path) }}" download>
+                                                                {{ $item->file_path }}
+                                                            </a>
+                                                        </td>
+                                                        <td>{{ $item->description }}</td>
+                                                        <td>
+                                                            <a href="{{route('report.edit', $item->id)}}">
+                                                                <button style="margin: 0" class="btn btn-round btn-warning"><i class="fa fa-edit"></i></button>
+                                                            </a>
+                                                            <form action="{{route('report.destroy', $item->id)}}" method="POST" class="d-inline">
+                                                                @csrf
+                                                                @method('delete')
+                                                                <button type="button" style="margin: 0" class="deleteBtn btn btn-round btn-danger"><i class="fa fa-trash"></i></button>
+                                                            </form>
+                                                        </td>
+                                                    </tr>
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                         </div>
@@ -134,12 +145,7 @@
         <!-- /page content -->
 
         <!-- footer content -->
-        <footer>
-            <div class="pull-right">
-                Quản Lý Dự Án by <a href="https://colorlib.com">Nguyễn Thị Lâm</a>
-            </div>
-            <div class="clearfix"></div>
-        </footer>
+        @include('layouts.footer_content')
         <!-- /footer content -->
     </div>
 </div>
@@ -173,6 +179,7 @@
 
 <!-- Custom Theme Scripts -->
 <script src="{{asset('/build/js/custom.min.js')}}"></script>
+@include('layouts.swal_delete')
 
 </body>
 </html>

@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="icon" href="{{asset('production/images/logo.png')}}" type="image/ico" />
     <title>Danh sách nhân viên</title>
 
     <!-- Bootstrap -->
@@ -103,6 +103,7 @@
                                                     <th>Thời gian kết thúc</th>
                                                     <th>Nhân viên</th>
                                                     <th>Dự án</th>
+                                                    <th>Thao tác</th>
 {{--                                                    <th>Office</th>--}}
 {{--                                                    <th>Age</th>--}}
 {{--                                                    <th>Start date</th>--}}
@@ -118,6 +119,16 @@
 {{--                                                        <td>{{ $item->execution_time }}</td>--}}
 {{--                                                        <td>{{ $item->status }}</td>--}}
 {{--                                                        <td>{{ $item->description }}</td>--}}
+{{--<td>--}}
+{{--    <a href="{{route('staff.edit', $item->id)}}">--}}
+{{--        <button style="margin: 0" class="btn btn-round btn-warning"><i class="fa fa-edit"></i></button>--}}
+{{--    </a>--}}
+{{--    <form action="{{route('staff.destroy', $item->id)}}" method="POST" class="d-inline">--}}
+{{--        @csrf--}}
+{{--        @method('delete')--}}
+{{--        <button type="button" style="margin: 0" class="deleteBtn btn btn-round btn-danger"><i class="fa fa-trash"></i></button>--}}
+{{--    </form>--}}
+{{--</td>--}}
 {{--                                                    </tr>--}}
 {{--                                                    @endforeach--}}
                                                 </tbody>
@@ -134,12 +145,7 @@
         <!-- /page content -->
 
         <!-- footer content -->
-        <footer>
-            <div class="pull-right">
-                Quản Lý Dự Án by <a href="https://colorlib.com">Nguyễn Thị Lâm</a>
-            </div>
-            <div class="clearfix"></div>
-        </footer>
+        @include('layouts.footer_content')
         <!-- /footer content -->
     </div>
 </div>
@@ -173,6 +179,7 @@
 
 <!-- Custom Theme Scripts -->
 <script src="{{asset('/build/js/custom.min.js')}}"></script>
+@include('layouts.swal_delete')
 
 </body>
 </html>
