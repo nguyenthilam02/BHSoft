@@ -124,10 +124,9 @@
                                             <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 ">
-                                            <select class="form-control" name="user_id" required="required">
-                                                <option value="">Chọn nhân viên</option>
+                                            <select class="select2_multiple form-control" multiple="multiple" name="user_id[]" required="required">
                                                 @foreach($users as $user)
-                                                    <option value="{{$user->id}}" {{$item->user_id == $user->id ? 'selected' : ''}}>{{$user->name}}</option>
+                                                    <option value="{{$user->id}}" {{ in_array($user->id, $item->users->pluck('id')->toArray()) ? 'selected' : '' }}>{{$user->name}}</option>
                                                 @endforeach
                                             </select>
                                         </div>

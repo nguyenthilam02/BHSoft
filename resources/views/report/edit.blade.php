@@ -119,11 +119,11 @@
                                         </div>
                                     </div>
                                     <div class="item form-group">
-                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Nhân viên gửi
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Người gửi
                                             <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 ">
-                                            <select class="form-control" name="user_id" required="required">
+                                            <select class="form-control" name="user_id" required="required" disabled>
                                                 <option value="">Chọn nhân viên</option>
                                                 @foreach($users as $user)
                                                     <option value="{{$user->id}}" {{$item->user_id == $user->id ? 'selected' : ''}}>{{$user->name}}</option>
@@ -186,7 +186,7 @@
                                     <div class="item form-group">
                                         <div class="col-md-6 col-sm-6 offset-md-3">
                                             {{--                                            <button class="btn btn-primary" type="reset">Reset</button>--}}
-                                            <button type="submit" class="btn btn-success">Thêm mới</button>
+                                            <button type="submit" class="btn btn-success">Sửa</button>
                                         </div>
                                     </div>
 

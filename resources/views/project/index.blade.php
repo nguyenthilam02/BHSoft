@@ -120,7 +120,9 @@
                                                         <td>{{ $loop->index + 1 }}</td>
                                                         <td>{{ $item->code }}</td>
                                                         <td>{{ $item->name }}</td>
-                                                        <td>{{ $item->user->name }}</td>
+                                                        <td>
+                                                            {{ $item->users->pluck('name')->join(', ') }}
+                                                        </td>
                                                         <td>{{ $item->execution_time }}</td>
                                                         <td>
                                                             @if($item->status == 'started')
