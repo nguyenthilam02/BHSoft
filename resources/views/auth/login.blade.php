@@ -80,6 +80,7 @@
     <div class="login_wrapper">
         <div class="animate form login_form">
             <section class="login_content">
+                @include('layouts.notification')
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <h1>Login Form</h1>
@@ -101,19 +102,17 @@
 
                     <div class="clearfix"></div>
 
+
                     <div class="separator">
+                        <p class="change_link">
+                            <a href="{{ route('password.request') }}" class="to_register"> Forgot your password? </a>
+                        </p>
                         <p class="change_link">New to site?
                             <a href="{{ route('register') }}" class="to_register"> Create Account </a>
                         </p>
 
                         <div class="clearfix"></div>
                         <br/>
-
-{{--                        <div>--}}
-{{--                            <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>--}}
-{{--                            <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 4 template. Privacy and--}}
-{{--                                Terms</p>--}}
-{{--                        </div>--}}
                     </div>
                 </form>
             </section>

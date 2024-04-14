@@ -151,7 +151,7 @@
                                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Số điện thoại <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 ">
-                                            <input type="number" name="phone" required="required"
+                                            <input type="text" name="phone" required="required"
                                                    class="form-control" value="{{$item->phone}}">
                                         </div>
                                     </div>
