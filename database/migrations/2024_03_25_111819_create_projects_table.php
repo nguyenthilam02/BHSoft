@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->date('execution_time');
             $table->integer('user_id');
-            $table->string('status')->default('active');
+            $table->string('status')->default('started');
             $table->text('description')->nullable();
             $table->timestamps();
         });
