@@ -12,7 +12,8 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        return view('project.index');
+        $projects = Project::orderBy('created_at', 'desc')->get();
+        return view('project.index', compact('projects'));
     }
 
     /**
@@ -29,7 +30,7 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'code' => 'required',
+            'code' => 'required|unique:projects,code',
             'name' => 'required',
             'execution_time' => 'required|date',
             'description' => 'string|nullable',
@@ -38,9 +39,9 @@ class ProjectController extends Controller
         $data = $request->all();
         $status = Project::create($data);
         if ($status) {
-            return redirect()->route('project.index')->with('success', 'Banner created successfully');
+            return redirect()->route('project.index')->with('success', 'Thêm mới dự án thành công');
         } else {
-            return back()->with('error', 'Error occurred while creating banner');
+            return back()->with('error', 'Lỗi thêm mới dự án');
         }
     }
 
