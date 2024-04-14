@@ -23,13 +23,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', [Controller::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/page-user', function () {
+    return view('page-user');
+});
 
-Route::middleware('auth')->group(function () {
+Route::get('/dashboard', [Controller::class, 'dashboard'])->middleware(['auth', 'verified', 'check.user.status'])->name('dashboard');
+
+Route::middleware(['auth', 'check.user.status'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    Route::get('edit-profile', [StaffController::class, 'editProfile'])->name('edit-profile');
+    Route::get('update-password', [StaffController::class, 'updatePassword'])->name('update-password');
 
     // Project
     Route::resource('project', ProjectController::class);

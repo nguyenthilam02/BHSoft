@@ -67,8 +67,9 @@
                             <div class="x_title">
                                 <h2>Danh sách dự án</h2>
                                 <ul class="nav navbar-right panel_toolbox">
-                                    <li><a href="{{route('project.create')}}" style="padding: 0; margin-right: 10px"><button class="btn btn-primary" type="button">Thêm mới</button></a></li>
-
+                                    @if(Auth::user()->role != 'member')
+                                        <li><a href="{{route('project.create')}}" style="padding: 0; margin-right: 10px"><button class="btn btn-primary" type="button">Thêm mới</button></a></li>
+                                    @endif
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
 {{--                                    <li class="dropdown">--}}
@@ -96,6 +97,7 @@
                                                     <th>STT</th>
                                                     <th>Mã dự án</th>
                                                     <th>Tên dự án</th>
+                                                    <th>Nhân viên tham gia</th>
                                                     <th>Thời gian thực hiện</th>
                                                     <th>Trạng thái</th>
                                                     <th>Mô tả</th>
@@ -113,10 +115,20 @@
                                                         <td>{{ $loop->index + 1 }}</td>
                                                         <td>{{ $item->code }}</td>
                                                         <td>{{ $item->name }}</td>
+                                                        <td>{{ $item->user->name }}</td>
                                                         <td>{{ $item->execution_time }}</td>
-                                                        <td>{{ $item->status }}</td>
+                                                        <td>
+                                                            @if($item->status == 'started')
+                                                                <button type="button" class="btn btn-success btn-sm">Bắt đầu</button>
+                                                            @elseif($item->status == 'progress')
+                                                                <button type="button" class="btn btn-info btn-sm">Đang triển khai</button>
+                                                            @elseif($item->status == 'complete')
+                                                                <button type="button" class="btn btn-secondary btn-sm">Hòan thành</button>
+                                                            @endif
+                                                        </td>
                                                         <td>{{ $item->description }}</td>
                                                         <td>
+                                                            @if(Auth::user()->role != 'member')
                                                             <a href="{{route('project.edit', $item->id)}}">
                                                                 <button style="margin: 0" class="btn btn-round btn-warning"><i class="fa fa-edit"></i></button>
                                                             </a>
@@ -125,6 +137,7 @@
                                                                 @method('delete')
                                                                 <button type="button" style="margin: 0" class="deleteBtn btn btn-round btn-danger"><i class="fa fa-trash"></i></button>
                                                             </form>
+                                                            @endif
                                                         </td>
                                                     </tr>
                                                     @endforeach

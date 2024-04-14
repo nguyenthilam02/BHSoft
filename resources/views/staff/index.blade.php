@@ -67,8 +67,9 @@
                             <div class="x_title">
                                 <h2>Danh sách nhân viên</h2>
                                 <ul class="nav navbar-right panel_toolbox">
+                                    @if(Auth::user()->role == 'admin')
                                     <li><a href="{{route('staff.create')}}" style="padding: 0; margin-right: 10px"><button class="btn btn-primary" type="button">Thêm mới</button></a></li>
-
+                                    @endif
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
 {{--                                    <li class="dropdown">--}}
@@ -99,12 +100,9 @@
                                                     <th>Giới tính</th>
                                                     <th>Sđt</th>
                                                     <th>Email</th>
+                                                    <th>Trạng thái</th>
                                                     <th>Địa chỉ</th>
                                                     <th>Thao tác</th>
-{{--                                                    <th>Office</th>--}}
-{{--                                                    <th>Age</th>--}}
-{{--                                                    <th>Start date</th>--}}
-{{--                                                    <th>Salary</th>--}}
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -113,12 +111,27 @@
                                                         <td>{{ $loop->index + 1 }}</td>
                                                         <td>NV{{ $item->id }}</td>
                                                         <td>{{ $item->name }}</td>
-                                                        <td>{{ $item->gender }}</td>
+                                                        <td>
+                                                            @if($item->gender == 'female')
+                                                                Nữ
+                                                            @elseif($item->gender == 'male')
+                                                                Nam
+                                                            @else
+                                                                Khác
+                                                            @endif
+                                                        </td>
                                                         <td>{{ $item->phone }}</td>
                                                         <td>{{ $item->email }}</td>
+                                                        <td>
+                                                            @if($item->status == 1)
+                                                                <button type="button" class="btn btn-secondary btn-sm">Chưa được duyệt</button>
+                                                            @else
+                                                                <button type="button" class="btn btn-info btn-sm">Đã duyệt</button>
+                                                            @endif
+                                                        </td>
                                                         <td>{{ $item->address }}</td>
                                                         <td>
-                                                            @if(Auth::user()->role == 'admin' && Auth::user()->id != $item->id)
+                                                            @if(Auth::user()->role == 'admin')
                                                                 <a href="{{route('staff.edit', $item->id)}}">
                                                                     <button style="margin: 0"
                                                                             class="btn btn-round btn-warning"><i

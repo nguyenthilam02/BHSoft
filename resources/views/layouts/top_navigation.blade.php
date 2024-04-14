@@ -10,12 +10,12 @@
                         <img src="{{asset('production/images/img.jpg')}}" alt="...">{{ Auth::user()->name }}
                     </a>
                     <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{route('profile.edit')}}"> Profile</a>
-                        <a class="dropdown-item"  href="javascript:;">
-                            <span class="badge bg-red pull-right">50%</span>
-                            <span>Settings</span>
-                        </a>
-                        <a class="dropdown-item"  href="javascript:;">Help</a>
+                        <a class="dropdown-item" href="{{route('edit-profile')}}">Edit Profile</a>
+{{--                        <a class="dropdown-item"  href="javascript:;">--}}
+{{--                            <span class="badge bg-red pull-right">50%</span>--}}
+{{--                            <span>Settings</span>--}}
+{{--                        </a>--}}
+                        <a class="dropdown-item"  href="{{route('update-password')}}">Đổi mật khẩu</a>
 
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf

@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="{{asset('production/images/logo.png')}}" type="image/ico" />
-    <title>Thêm mới dự án</title>
+    <title>Sửa thông tin</title>
 
     <!-- Bootstrap -->
     <link href="{{asset('/vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -75,7 +75,7 @@
                     <div class="col-md-12 col-sm-12 ">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2>Thêm dự án</h2>
+                                <h2>Sửa thông tin</h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
@@ -97,71 +97,96 @@
 
                             <div class="x_content">
                                 <br/>
-                                <form id="demo-form2" action="{{route('project.store')}}" method="POST"
+                                <form id="demo-form2" action="{{route('staff.update', $item->id)}}" method="POST"
                                       data-parsley-validate class="form-horizontal form-label-left">
                                     @csrf
+                                    @method('PUT')
+{{--                                    <div class="item form-group">--}}
+{{--                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Mã--}}
+{{--                                            issue <span class="required">*</span>--}}
+{{--                                        </label>--}}
+{{--                                        <div class="col-md-6 col-sm-6 ">--}}
+{{--                                            <input type="text" id="first-name" name="code" required="required"--}}
+{{--                                                   class="form-control" value="{{old('code')}}">--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
                                     <div class="item form-group">
-                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Mã
-                                            dự án <span class="required">*</span>
-                                        </label>
-                                        <div class="col-md-6 col-sm-6 ">
-                                            <input type="text" id="first-name" name="code" required="required"
-                                                   class="form-control" value="{{old('code')}}">
-                                        </div>
-                                    </div>
-                                    <div class="item form-group">
-                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Tên
-                                            dự án <span class="required">*</span>
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Tên<span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 ">
                                             <input type="text" id="last-name" name="name" required="required"
-                                                   class="form-control" value="{{old('name')}}">
+                                                   class="form-control" value="{{$item->name}}">
                                         </div>
                                     </div>
                                     <div class="item form-group">
-                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Nhân viên tham gia
-                                            <span class="required">*</span>
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Email <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 ">
-                                            <select class="form-control" name="user_id" required="required">
-                                                <option value="">Chọn nhân viên</option>
-                                                @foreach($users as $item)
-                                                    <option value="{{$item->id}}" {{old('user_id') == $item->id ? 'selected' : ''}}>{{$item->name}}</option>
-                                                @endforeach
-                                            </select>
+                                            <input type="email" name="email" required="required"
+                                                   class="form-control" value="{{$item->email}}">
+{{--                                            <input style="display: none; " type="password" name="password" required="required"--}}
+{{--                                                   class="form-control" value="12345678">--}}
+{{--                                            <input style="display: none; " type="password" name="password_confirmation" required="required"--}}
+{{--                                                   class="form-control" value="12345678">--}}
                                         </div>
                                     </div>
+
                                     <div class="item form-group">
-                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Thời gian thực hiện
-                                            <span class="required">*</span>
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Giới tính <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 ">
-                                            <input id="birthday" name="execution_time" value="{{old('execution_time')}}" class="date-picker form-control"
-                                                   placeholder="dd-mm-yyyy" required="required" type="text"
-                                                   onfocus="this.type='date'" onmouseover="this.type='date'"
-                                                   onclick="this.type='date'" onblur="this.type='text'"
-                                                   onmouseout="timeFunctionLong(this)">
-                                            <script>
-                                                function timeFunctionLong(input) {
-                                                    setTimeout(function () {
-                                                        input.type = 'text';
-                                                    }, 60000);
-                                                }
-                                            </script>
+                                            <label>
+                                                <input type="radio" name="gender" class="flat" value="male" {{$item->gender == 'male' ? 'checked' : ''}} > Nam
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="gender" class="flat" value="female" {{$item->gender == 'female' ? 'checked' : ''}} > Nữ
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="gender" class="flat" value="other" {{$item->gender == 'other' ? 'checked' : ''}} > Khác
+                                            </label>
                                         </div>
                                     </div>
+
                                     <div class="item form-group">
-                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Mô tả</label>
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Số điện thoại <span class="required">*</span>
+                                        </label>
                                         <div class="col-md-6 col-sm-6 ">
-                                            <textarea class="resizable_textarea form-control" name="description"
-                                                      placeholder="Nhập mô tả dự án của bạn tại đây...">{{old('description')}}</textarea>
+                                            <input type="number" name="phone" required="required"
+                                                   class="form-control" value="{{$item->phone}}">
+                                        </div>
+                                    </div>
+
+                                    {{--                                    <div class="item form-group">--}}
+                                    {{--                                        <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Middle Name / Initial</label>--}}
+                                    {{--                                        <div class="col-md-6 col-sm-6 ">--}}
+                                    {{--                                            <input id="middle-name" class="form-control" type="text" name="middle-name">--}}
+                                    {{--                                        </div>--}}
+                                    {{--                                    </div>--}}
+                                    {{--                                    <div class="item form-group">--}}
+                                    {{--                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Gender</label>--}}
+                                    {{--                                        <div class="col-md-6 col-sm-6 ">--}}
+                                    {{--                                            <div id="gender" class="btn-group" data-toggle="buttons">--}}
+                                    {{--                                                <label class="btn btn-secondary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">--}}
+                                    {{--                                                    <input type="radio" name="gender" value="male" class="join-btn"> &nbsp; Male &nbsp;--}}
+                                    {{--                                                </label>--}}
+                                    {{--                                                <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">--}}
+                                    {{--                                                    <input type="radio" name="gender" value="female" class="join-btn"> Female--}}
+                                    {{--                                                </label>--}}
+                                    {{--                                            </div>--}}
+                                    {{--                                        </div>--}}
+                                    {{--                                    </div>--}}
+                                    <div class="item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Địa chỉ</label>
+                                        <div class="col-md-6 col-sm-6 ">
+                                            <textarea class="resizable_textarea form-control" name="address"
+                                                      placeholder="Nhập địa chỉ của bạn tại đây...">{{$item->address}}</textarea>
                                         </div>
                                     </div>
                                     <div class="ln_solid"></div>
                                     <div class="item form-group">
                                         <div class="col-md-6 col-sm-6 offset-md-3">
                                             {{--                                            <button class="btn btn-primary" type="reset">Reset</button>--}}
-                                            <button type="submit" class="btn btn-success">Thêm mới</button>
+                                            <button type="submit" class="btn btn-success">Sửa</button>
                                         </div>
                                     </div>
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -22,7 +23,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('project.create');
+        $users = User::orderBy('name', 'asc')->get();
+        return view('project.create', compact('users'));
     }
 
     /**
@@ -33,9 +35,9 @@ class ProjectController extends Controller
         $this->validate($request, [
             'code' => 'required|unique:projects,code',
             'name' => 'required',
+            'user_id' => 'required',
             'execution_time' => 'required|date',
             'description' => 'string|nullable',
-            'status' => 'nullable|in:active,pending,done',
         ]);
         $data = $request->all();
         $status = Project::create($data);
@@ -59,8 +61,9 @@ class ProjectController extends Controller
      */
     public function edit(string $id)
     {
+        $users = User::orderBy('name', 'asc')->get();
         $item = Project::findOrFail($id);
-        return view('project.edit', compact('item'));
+        return view('project.edit', compact('item', 'users'));
     }
 
     /**
@@ -75,7 +78,7 @@ class ProjectController extends Controller
                 'name' => 'required',
                 'execution_time' => 'required|date',
                 'description' => 'string|nullable',
-                'status' => 'nullable|in:active,pending,done',
+                'status' => 'required',
             ]);
             $data = $request->all();
             $status = $project->fill($data)->save();

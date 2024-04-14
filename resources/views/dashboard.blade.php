@@ -61,7 +61,9 @@
         <div class="right_col" role="main">
             <!-- top tiles -->
             <div class="row" style="display: block;" >
+                <div class="clearfix"></div>
                 <div class="tile_count">
+                    @include('layouts.notification')
                     <div class="col-md-3 col-sm-5  tile_stats_count">
                         <span class="count_top"><i class="fa fa-user"></i> Tổng số nhân viên</span>
                         <div class="count">{{ $users->count() }}</div>
