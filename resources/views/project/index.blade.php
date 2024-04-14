@@ -28,6 +28,11 @@
 
     <!-- Custom Theme Style -->
     <link href="{{asset('/build/css/custom.min.css')}}" rel="stylesheet">
+    <style>
+        table.table-bordered.dataTable th, table.table-bordered.dataTable td {
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body class="nav-md">
@@ -79,7 +84,7 @@
 {{--                                            <a class="dropdown-item" href="#">Settings 2</a>--}}
 {{--                                        </div>--}}
 {{--                                    </li>--}}
-                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                    <li><a href="{{route('project.index')}}" class="close-link"><i class="fa fa-close"></i></a>
                                     </li>
                                 </ul>
                                 <div class="clearfix"></div>
