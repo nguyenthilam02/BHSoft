@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="icon" href="{{asset('production/images/logo.png')}}" type="image/ico" />
     <title>Danh sách nhân viên</title>
 
     <!-- Bootstrap -->
@@ -134,12 +134,7 @@
         <!-- /page content -->
 
         <!-- footer content -->
-        <footer>
-            <div class="pull-right">
-                Quản Lý Dự Án by <a href="https://colorlib.com">Nguyễn Thị Lâm</a>
-            </div>
-            <div class="clearfix"></div>
-        </footer>
+        @include('layouts.footer_content')
         <!-- /footer content -->
     </div>
 </div>
