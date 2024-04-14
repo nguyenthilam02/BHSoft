@@ -320,24 +320,34 @@
                                     <li><a class="close-link"><i class="fa fa-close"></i></a>
                                     </li>
                                 </ul>
+
                                 <div class="clearfix"></div>
                             </div>
+                            @if($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach($errors->all() as $error)
+                                            <li>{{$error}}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                             <div class="x_content">
                                 <br />
-                                <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
-
+                                <form id="demo-form2" action="{{route('project.store')}}" method="POST" data-parsley-validate class="form-horizontal form-label-left">
+                                    @csrf
                                     <div class="item form-group">
                                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Mã dự án <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 ">
-                                            <input type="text" id="first-name" required="required" class="form-control ">
+                                            <input type="text" id="first-name" name="code" required="required" class="form-control ">
                                         </div>
                                     </div>
                                     <div class="item form-group">
                                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Tên dự án <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 ">
-                                            <input type="text" id="last-name" name="last-name" required="required" class="form-control">
+                                            <input type="text" id="last-name" name="name" required="required" class="form-control">
                                         </div>
                                     </div>
 {{--                                    <div class="item form-group">--}}
@@ -363,7 +373,7 @@
                                         <label class="col-form-label col-md-3 col-sm-3 label-align">Thời gian thực hiện <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 ">
-                                            <input id="birthday" class="date-picker form-control" placeholder="dd-mm-yyyy" type="text" required="required" type="text" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
+                                            <input id="birthday" name="execution_time" class="date-picker form-control" placeholder="dd-mm-yyyy" required="required" type="text" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
                                             <script>
                                                 function timeFunctionLong(input) {
                                                     setTimeout(function() {
@@ -371,6 +381,12 @@
                                                     }, 60000);
                                                 }
                                             </script>
+                                        </div>
+                                    </div>
+                                    <div class="item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Mô tả</label>
+                                        <div class="col-md-6 col-sm-6 ">
+                                            <textarea class="resizable_textarea form-control" name="description" placeholder="Nhập mô tả dự án của bạn tại đây..."></textarea>
                                         </div>
                                     </div>
                                     <div class="ln_solid"></div>
