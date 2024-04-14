@@ -67,8 +67,9 @@
                             <div class="x_title">
                                 <h2>Danh sách dự án</h2>
                                 <ul class="nav navbar-right panel_toolbox">
-                                    <li><a href="{{route('project.create')}}" style="padding: 0; margin-right: 10px"><button class="btn btn-primary" type="button">Thêm mới</button></a></li>
-
+                                    @if(Auth::user()->role != 'member')
+                                        <li><a href="{{route('project.create')}}" style="padding: 0; margin-right: 10px"><button class="btn btn-primary" type="button">Thêm mới</button></a></li>
+                                    @endif
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
 {{--                                    <li class="dropdown">--}}
@@ -127,6 +128,7 @@
                                                         </td>
                                                         <td>{{ $item->description }}</td>
                                                         <td>
+                                                            @if(Auth::user()->role != 'member')
                                                             <a href="{{route('project.edit', $item->id)}}">
                                                                 <button style="margin: 0" class="btn btn-round btn-warning"><i class="fa fa-edit"></i></button>
                                                             </a>
@@ -135,6 +137,7 @@
                                                                 @method('delete')
                                                                 <button type="button" style="margin: 0" class="deleteBtn btn btn-round btn-danger"><i class="fa fa-trash"></i></button>
                                                             </form>
+                                                            @endif
                                                         </td>
                                                     </tr>
                                                     @endforeach

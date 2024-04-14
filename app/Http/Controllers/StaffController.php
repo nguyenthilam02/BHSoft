@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 
@@ -16,6 +17,12 @@ class StaffController extends Controller
     {
         $users = User::orderBy('name', 'asc')->get();
         return view('staff.index', compact('users'));
+    }
+
+    public function editProfile()
+    {
+        $item = User::findOrFail(Auth::id());
+        return view('edit-profile', compact('item'));
     }
 
     /**

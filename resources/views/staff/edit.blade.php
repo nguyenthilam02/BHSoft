@@ -192,7 +192,7 @@
                                         <label class="col-form-label col-md-3 col-sm-3 label-align">Địa chỉ</label>
                                         <div class="col-md-6 col-sm-6 ">
                                             <textarea class="resizable_textarea form-control" name="address"
-                                                      placeholder="Nhập mô tả dự án của bạn tại đây...">{{$item->address}}</textarea>
+                                                      placeholder="Nhập địa chỉ của bạn tại đây...">{{$item->address}}</textarea>
                                         </div>
                                     </div>
                                     <div class="ln_solid"></div>

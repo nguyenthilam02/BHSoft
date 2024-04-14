@@ -34,6 +34,7 @@ Route::middleware(['auth', 'check.user.status'])->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    Route::get('edit-profile', [StaffController::class, 'editProfile'])->name('edit-profile');
 
     // Project
     Route::resource('project', ProjectController::class);
