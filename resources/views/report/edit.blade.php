@@ -6,8 +6,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="{{asset('production/images/logo.png')}}" type="image/ico" />
-    <title>Thêm mới issue</title>
+
+    <title>Sửa báo cáo</title>
 
     <!-- Bootstrap -->
     <link href="{{asset('/vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -75,7 +75,7 @@
                     <div class="col-md-12 col-sm-12 ">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2>Thêm issue</h2>
+                                <h2>Sửa báo cáo</h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
@@ -97,16 +97,17 @@
 
                             <div class="x_content">
                                 <br/>
-                                <form id="demo-form2" action="{{route('issue.store')}}" method="POST"
+                                <form id="demo-form2" action="{{route('report.update', $item->id)}}" method="POST"  enctype="multipart/form-data"
                                       data-parsley-validate class="form-horizontal form-label-left">
                                     @csrf
+                                    @method('PUT')
 {{--                                    <div class="item form-group">--}}
 {{--                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Mã--}}
-{{--                                            issue <span class="required">*</span>--}}
+{{--                                            báo cáo <span class="required">*</span>--}}
 {{--                                        </label>--}}
 {{--                                        <div class="col-md-6 col-sm-6 ">--}}
 {{--                                            <input type="text" id="first-name" name="code" required="required"--}}
-{{--                                                   class="form-control" value="{{old('code')}}">--}}
+{{--                                                   class="form-control" value="{{$item->code}}">--}}
 {{--                                        </div>--}}
 {{--                                    </div>--}}
                                     <div class="item form-group">
@@ -114,88 +115,18 @@
                                         </label>
                                         <div class="col-md-6 col-sm-6 ">
                                             <input type="text" id="last-name" name="title" required="required"
-                                                   class="form-control" value="{{old('title')}}">
+                                                   class="form-control" value="{{$item->title}}">
                                         </div>
                                     </div>
                                     <div class="item form-group">
-                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Phân loại <span class="required">*</span>
-                                        </label>
-                                        <div class="col-md-6 col-sm-6 ">
-                                            <label class="mr-3">
-                                                <input value="task" type="radio" name="classify" class="flat" checked required="required"> Task
-                                            </label>
-                                            <label class="mr-3">
-                                                <input value="bug" type="radio" name="classify" class="flat" required="required"> Bug
-                                            </label>
-                                            <label>
-                                                <input value="features" type="radio" name="classify" class="flat"  required="required"> Features
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="item form-group">
-                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Độ ưu tiên <span class="required">*</span></span>
-                                        </label>
-                                        <div class="col-md-6 col-sm-6 ">
-                                            <div class="radio">
-                                                <label class="mr-3">
-                                                    <input value="low" type="radio" name="priority" class="flat" checked> Thấp
-                                                </label>
-                                                <label class="mr-3">
-                                                    <input value="medium" type="radio" name="priority" class="flat"> Trung bình
-                                                </label>
-                                                <label>
-                                                    <input value="high" type="radio" name="priority" class="flat"> Cao
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item form-group">
-                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Thời gian bắt đầu
-                                            <span class="required">*</span>
-                                        </label>
-                                        <div class="col-md-6 col-sm-6 ">
-                                            <input id="birthday" name="start_time" value="{{old('start_time')}}" class="date-picker form-control"
-                                                   placeholder="dd-mm-yyyy" required="required" type="text"
-                                                   onfocus="this.type='date'" onmouseover="this.type='date'"
-                                                   onclick="this.type='date'" onblur="this.type='text'"
-                                                   onmouseout="timeFunctionLong(this)">
-                                            <script>
-                                                function timeFunctionLong(input) {
-                                                    setTimeout(function () {
-                                                        input.type = 'text';
-                                                    }, 60000);
-                                                }
-                                            </script>
-                                        </div>
-                                    </div>
-                                    <div class="item form-group">
-                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Thời gian kết thúc
-                                            <span class="required">*</span>
-                                        </label>
-                                        <div class="col-md-6 col-sm-6 ">
-                                            <input id="birthday" name="end_time" value="{{old('end_time')}}" class="date-picker form-control"
-                                                   placeholder="dd-mm-yyyy" required="required" type="text"
-                                                   onfocus="this.type='date'" onmouseover="this.type='date'"
-                                                   onclick="this.type='date'" onblur="this.type='text'"
-                                                   onmouseout="timeFunctionLong(this)">
-                                            <script>
-                                                function timeFunctionLong(input) {
-                                                    setTimeout(function () {
-                                                        input.type = 'text';
-                                                    }, 60000);
-                                                }
-                                            </script>
-                                        </div>
-                                    </div>
-                                    <div class="item form-group">
-                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Nhân viên
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Nhân viên gửi
                                             <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 ">
                                             <select class="form-control" name="user_id" required="required">
                                                 <option value="">Chọn nhân viên</option>
-                                                @foreach($users as $item)
-                                                    <option value="{{$item->id}}" {{old('user_id') == $item->id ? 'selected' : ''}}>{{$item->name}}</option>
+                                                @foreach($users as $user)
+                                                    <option value="{{$user->id}}" {{$item->user_id == $user->id ? 'selected' : ''}}>{{$user->name}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -207,24 +138,43 @@
                                         <div class="col-md-6 col-sm-6 ">
                                             <select class="form-control" name="project_id" required="required">
                                                 <option value="">Chọn dự án</option>
-                                                @foreach($projects as $item)
-                                                    <option value="{{$item->id}}" {{old('project_id') == $item->id ? 'selected' : ''}}>{{$item->name}}</option>
+                                                @foreach($projects as $project)
+                                                    <option value="{{$project->id}}" {{$item->project_id == $project->id ? 'selected' : ''}}>{{$project->name}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
                                     </div>
                                     <div class="item form-group">
-                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Trạng thái
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Thời gian gửi
                                             <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 ">
-                                            <select class="form-control" name="status" required="required">
-                                                <option value="new" {{old('status') == 'new' ? 'selected' : ''}}>Mới</option>
-                                                <option value="processing" {{old('status') == 'processing' ? 'selected' : ''}}>Đang thực hiện</option>
-                                                <option value="complete" {{old('status') == 'complete' ? 'selected' : ''}}>Hoàn thành</option>
-                                            </select>
+                                            <input id="birthday" name="created_date" value="{{$item->created_date}}" class="date-picker form-control"
+                                                   placeholder="dd-mm-yyyy" required="required" type="text"
+                                                   onfocus="this.type='date'" onmouseover="this.type='date'"
+                                                   onclick="this.type='date'" onblur="this.type='text'"
+                                                   onmouseout="timeFunctionLong(this)">
+                                            <script>
+                                                function timeFunctionLong(input) {
+                                                    setTimeout(function () {
+                                                        input.type = 'text';
+                                                    }, 60000);
+                                                }
+                                            </script>
                                         </div>
                                     </div>
+                                    <div class="item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align">File tài liệu
+                                            <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 ">
+                                            <div class="custom-file">
+                                                <input type="file" name="file_path" value="{{$item->file_path}}" class="custom-file-input" id="chooseFile">
+                                                <label class="custom-file-label" for="chooseFile">{{$item->file_path}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div class="item form-group">
                                         <label class="col-form-label col-md-3 col-sm-3 label-align">Mô tả</label>
                                         <div class="col-md-6 col-sm-6 ">
@@ -292,5 +242,14 @@
 <!-- Custom Theme Scripts -->
 <script src="{{asset('/build/js/custom.min.js')}}"></script>
 
+
+<script>
+    $(document).ready(function(){
+        $('#chooseFile').change(function(e){
+            var fileName = e.target.files[0].name;
+            $('.custom-file-label').html(fileName);
+        });
+    });
+</script>
 </body>
 </html>

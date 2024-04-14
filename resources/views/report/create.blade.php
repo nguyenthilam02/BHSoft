@@ -100,15 +100,15 @@
                                 <form id="demo-form2" action="{{route('report.store')}}" method="POST"  enctype="multipart/form-data"
                                       data-parsley-validate class="form-horizontal form-label-left">
                                     @csrf
-                                    <div class="item form-group">
-                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Mã
-                                            báo cáo <span class="required">*</span>
-                                        </label>
-                                        <div class="col-md-6 col-sm-6 ">
-                                            <input type="text" id="first-name" name="code" required="required"
-                                                   class="form-control" value="{{old('code')}}">
-                                        </div>
-                                    </div>
+{{--                                    <div class="item form-group">--}}
+{{--                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Mã--}}
+{{--                                            báo cáo <span class="required">*</span>--}}
+{{--                                        </label>--}}
+{{--                                        <div class="col-md-6 col-sm-6 ">--}}
+{{--                                            <input type="text" id="first-name" name="code" required="required"--}}
+{{--                                                   class="form-control" value="{{old('code')}}">--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
                                     <div class="item form-group">
                                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Tiêu đề <span class="required">*</span>
                                         </label>
