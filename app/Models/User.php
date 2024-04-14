@@ -26,6 +26,7 @@ class User extends Authenticatable
         'gender',
         'phone',
         'address',
+        'status',
         'profile_photo_path',
     ];
 

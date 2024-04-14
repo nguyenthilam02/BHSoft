@@ -118,25 +118,19 @@
                                                    class="form-control" value="{{old('name')}}">
                                         </div>
                                     </div>
-                                    {{--                                    <div class="item form-group">--}}
-                                    {{--                                        <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Middle Name / Initial</label>--}}
-                                    {{--                                        <div class="col-md-6 col-sm-6 ">--}}
-                                    {{--                                            <input id="middle-name" class="form-control" type="text" name="middle-name">--}}
-                                    {{--                                        </div>--}}
-                                    {{--                                    </div>--}}
-                                    {{--                                    <div class="item form-group">--}}
-                                    {{--                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Gender</label>--}}
-                                    {{--                                        <div class="col-md-6 col-sm-6 ">--}}
-                                    {{--                                            <div id="gender" class="btn-group" data-toggle="buttons">--}}
-                                    {{--                                                <label class="btn btn-secondary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">--}}
-                                    {{--                                                    <input type="radio" name="gender" value="male" class="join-btn"> &nbsp; Male &nbsp;--}}
-                                    {{--                                                </label>--}}
-                                    {{--                                                <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">--}}
-                                    {{--                                                    <input type="radio" name="gender" value="female" class="join-btn"> Female--}}
-                                    {{--                                                </label>--}}
-                                    {{--                                            </div>--}}
-                                    {{--                                        </div>--}}
-                                    {{--                                    </div>--}}
+                                    <div class="item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Nhân viên tham gia
+                                            <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 ">
+                                            <select class="form-control" name="user_id" required="required">
+                                                <option value="">Chọn nhân viên</option>
+                                                @foreach($users as $item)
+                                                    <option value="{{$item->id}}" {{old('user_id') == $item->id ? 'selected' : ''}}>{{$item->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
                                     <div class="item form-group">
                                         <label class="col-form-label col-md-3 col-sm-3 label-align">Thời gian thực hiện
                                             <span class="required">*</span>

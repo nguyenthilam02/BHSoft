@@ -14,6 +14,7 @@ class Project extends Model
         'execution_time',
         'status',
         'description',
+        'user_id'
     ];
 
     public function numberOfIssues(){
