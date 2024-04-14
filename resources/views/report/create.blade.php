@@ -118,14 +118,14 @@
                                         </div>
                                     </div>
                                     <div class="item form-group">
-                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Nhân viên gửi
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Người gửi
                                             <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 ">
-                                            <select class="form-control" name="user_id" required="required">
+                                            <select class="form-control" name="user_id" required="required" disabled>
                                                 <option value="">Chọn nhân viên</option>
                                                 @foreach($users as $item)
-                                                    <option value="{{$item->id}}" {{old('user_id') == $item->id ? 'selected' : ''}}>{{$item->name}}</option>
+                                                    <option value="{{$item->id}}" {{Auth::user()->id == $item->id ? 'selected' : ''}}>{{$item->name}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
