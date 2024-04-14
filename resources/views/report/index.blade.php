@@ -31,6 +31,7 @@
     <style>
         table.table-bordered.dataTable th, table.table-bordered.dataTable td {
             text-align: center;
+            white-space: nowrap;
         }
     </style>
 </head>
@@ -124,7 +125,7 @@
                                                             </a>
                                                         </td>
                                                         <td>{{ $item->description }}</td>
-                                                        <td>
+                                                        <td style="display: flex; justify-content: space-between;">
                                                             <a href="{{route('report.edit', $item->id)}}">
                                                                 <button style="margin: 0" class="btn btn-round btn-warning"><i class="fa fa-edit"></i></button>
                                                             </a>
