@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('issues', function (Blueprint $table) {
             $table->id();
             $table->string('code')->unique();
-            $table->string('name');
+            $table->string('title');
             $table->string('status')->default('new');
             $table->string('classify');
             $table->string('priority')->default('low');
