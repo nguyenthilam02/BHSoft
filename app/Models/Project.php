@@ -15,4 +15,12 @@ class Project extends Model
         'status',
         'description',
     ];
+
+    public function numberOfIssues(){
+        return $this->hasMany(Issue::class,'project_id','id');
+    }
+
+    public function numberOfReport(){
+        return $this->hasMany(Report::class,'project_id','id');
+    }
 }
