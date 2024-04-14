@@ -90,6 +90,45 @@
 {{--                                            <p class="text-muted font-13 m-b-30">--}}
 {{--                                                DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>--}}
 {{--                                            </p>--}}
+                                            <div class="">
+                                                <form method="get">
+                                                <div class="form-group">
+                                                    <label class="col-form-label col-md-1 col-sm-1 label-align">Nhân viên</label>
+                                                    <div class="col-md-2 col-sm-2 ">
+                                                        <select class="form-control" name="user_id">
+                                                            <option value="">Tất cả</option>
+                                                            @foreach($users as $item)
+                                                                <option value="{{$item->id}}" {{$user_id == $item->id ? 'selected' : ''}}>{{$item->name}}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-form-label col-md-1 col-sm-1 label-align">Dự án</label>
+                                                    <div class="col-md-2 col-sm-2 ">
+                                                        <select class="form-control" name="project_id">
+                                                            <option value="">Tất cả</option>
+                                                            @foreach($projects as $item)
+                                                                <option value="{{$item->id}}" {{$project_id == $item->id ? 'selected' : ''}}>{{$item->name}}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                    <div class=" form-group">
+                                                        <label class="col-form-label col-md-1 col-sm-1 label-align">Trạng thái
+                                                        </label>
+                                                        <div class="col-md-2 col-sm-2 ">
+                                                            <select class="form-control" name="status">
+                                                                <option value="" {{$status == 'new' ? 'selected' : ''}}>Tất cả</option>
+                                                                <option value="new" {{$status == 'new' ? 'selected' : ''}}>Mới</option>
+                                                                <option value="processing" {{$status == 'processing' ? 'selected' : ''}}>Đang thực hiện</option>
+                                                                <option value="complete" {{$status == 'complete' ? 'selected' : ''}}>Hoàn thành</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                <button class="btn btn-primary" type="submit">Lọc</button>
+                                                </form>
+                                            </div>
                                             <table id="datatable" class="table table-striped table-bordered" style="width:100%">
                                                 <thead>
                                                 <tr>
@@ -117,7 +156,15 @@
                                                         <td>{{ $loop->index + 1 }}</td>
                                                         <td>{{ $item->code }}</td>
                                                         <td>{{ $item->title }}</td>
-                                                        <td>{{ $item->status }}</td>
+                                                        <td>
+                                                            @if($item->status == 'new')
+                                                                Mới
+                                                            @elseif($item->status == 'processing')
+                                                                Đang thực hiện
+                                                            @elseif($item->status == 'complete')
+                                                                Đã hoàn thành
+                                                            @endif
+                                                        </td>
                                                         <td>{{ $item->classify }}</td>
                                                         <td>{{ $item->priority }}</td>
                                                         <td>{{ $item->start_time }}</td>
