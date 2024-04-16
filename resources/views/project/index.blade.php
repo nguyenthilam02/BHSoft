@@ -38,6 +38,8 @@
 
 <body class="nav-md">
 <div class="container body">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <div class="main_container">
         @include('layouts.sidebar')
 
@@ -146,6 +148,15 @@
                                                                 <button type="button" style="margin: 0" class="deleteBtn btn btn-round btn-danger"><i class="fa fa-trash"></i></button>
                                                             </form>
                                                             @endif
+                                                        </td>
+                                                    
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Tiến độ dự án</td>
+                                                        <td align="right" colspan="7">
+                                                            <div class="w3-light-grey">
+                                                                <div class="w3-blue" style="height:16px;width:{{ ($loop->index + 1) + 15}}%">{{ ($loop->index + 1) + 15 }}%</div>
+                                                            </div>
                                                         </td>
                                                     </tr>
                                                     @endforeach
