@@ -76,6 +76,15 @@
                             {{--                                    <li><a href="other_charts.html">Other Charts</a></li>--}}
                         </ul>
                     </li>
+                    <li><a><i class="fa fa-book"></i> Tài liệu <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="{{route('document.index')}}">Danh sách tài liệu</a></li>
+                            <li><a href="{{route('document.create')}}">Thêm tài liệu</a></li>
+                            {{--                                    <li><a href="morisjs.html">Moris JS</a></li>--}}
+                            {{--                                    <li><a href="echarts.html">ECharts</a></li>--}}
+                            {{--                                    <li><a href="other_charts.html">Other Charts</a></li>--}}
+                        </ul>
+                    </li>
                     {{--                            <li><a><i class="fa fa-clone"></i>Layouts <span class="fa fa-chevron-down"></span></a>--}}
                     {{--                                <ul class="nav child_menu">--}}
                     {{--                                    <li><a href="fixed_sidebar.html">Fixed Sidebar</a></li>--}}
