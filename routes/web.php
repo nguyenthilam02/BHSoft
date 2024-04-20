@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\IssueController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
@@ -48,6 +49,9 @@ Route::middleware(['auth', 'check.user.status'])->group(function () {
 
     // Staff
     Route::resource('staff', StaffController::class);
+
+    // Staff
+    Route::resource('document', DocumentController::class);
 });
 
 require __DIR__.'/auth.php';
