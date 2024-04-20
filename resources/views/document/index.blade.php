@@ -111,7 +111,7 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                @foreach($reports as $item)
+                                                @foreach($documents as $item)
                                                     <tr>
                                                         <td>{{ $loop->index + 1 }}</td>
                                                         <td>{{ $item->code }}</td>

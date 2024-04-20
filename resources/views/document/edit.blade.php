@@ -75,7 +75,7 @@
                     <div class="col-md-12 col-sm-12 ">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2>Sửa báo cáo</h2>
+                                <h2>Sửa tài liệu</h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
@@ -103,7 +103,7 @@
                                     @method('PUT')
 {{--                                    <div class="item form-group">--}}
 {{--                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Mã--}}
-{{--                                            báo cáo <span class="required">*</span>--}}
+{{--                                            tài liệu <span class="required">*</span>--}}
 {{--                                        </label>--}}
 {{--                                        <div class="col-md-6 col-sm-6 ">--}}
 {{--                                            <input type="text" id="first-name" name="code" required="required"--}}
@@ -180,7 +180,7 @@
                                         <label class="col-form-label col-md-3 col-sm-3 label-align">Mô tả</label>
                                         <div class="col-md-6 col-sm-6 ">
                                             <textarea class="resizable_textarea form-control" name="description"
-                                                      placeholder="Nhập mô tả báo cáo của bạn tại đây...">{{$item->description}}</textarea>
+                                                      placeholder="Nhập mô tả tài liệu của bạn tại đây...">{{$item->description}}</textarea>
                                         </div>
                                     </div>
                                     <div class="ln_solid"></div>

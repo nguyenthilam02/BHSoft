@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
-use App\Models\Report;
+use App\Models\Document;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -15,8 +15,8 @@ class DocumentController extends Controller
      */
     public function index()
     {
-        $reports = Report::orderBy('created_at', 'desc')->get();
-        return view('document.index', compact('reports'));
+        $documents = Document::orderBy('created_at', 'desc')->get();
+        return view('document.index', compact('documents'));
     }
 
     /**
@@ -49,11 +49,11 @@ class DocumentController extends Controller
         $data = $request->all();
         $data['file_path'] = $fileName;
         $data['code'] = 'BC-' . time();
-        $status = Report::create($data);
+        $status = Document::create($data);
         if ($status) {
-            return redirect()->route('document.index')->with('success', 'Thêm mới báo cáo thành công!');
+            return redirect()->route('document.index')->with('success', 'Thêm mới tài liệu thành công!');
         } else {
-            return back()->with('error', 'Lỗi thêm mới báo cáo!');
+            return back()->with('error', 'Lỗi thêm mới tài liệu!');
         }
     }
 
@@ -70,10 +70,10 @@ class DocumentController extends Controller
      */
     public function edit(string $id)
     {
-        $item = Report::findOrFail($id);
+        $item = Document::findOrFail($id);
         $users = User::orderBy('name', 'asc')->get();
         $projects = Project::orderBy('name', 'asc')->get();
-        return view('docment.edit', compact(['item', 'users', 'projects']));
+        return view('document.edit', compact(['item', 'users', 'projects']));
     }
 
     /**
@@ -81,7 +81,7 @@ class DocumentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $report = Report::findOrFail($id);
+        $report = Document::findOrFail($id);
         if ($report) {
             $this->validate($request, [
                 'title' => 'required',
@@ -101,12 +101,12 @@ class DocumentController extends Controller
             }
             $status = $report->fill($data)->save();
             if ($status) {
-                return redirect()->route('document.index')->with('success', 'Sửa báo cáo thành công!');
+                return redirect()->route('document.index')->with('success', 'Sửa tài liệu thành công!');
             } else {
-                return back()->with('error', 'Lỗi sửa báo cáo!');
+                return back()->with('error', 'Lỗi sửa tài liệu!');
             }
         } else {
-            return back()->with('error', 'Không tồn tại báo cáo này!');
+            return back()->with('error', 'Không tồn tại tài liệu này!');
         }
     }
 
@@ -115,16 +115,16 @@ class DocumentController extends Controller
      */
     public function destroy(string $id)
     {
-        $report = Report::findOrFail($id);
+        $report = Document::findOrFail($id);
         if ($report) {
             $status = $report->delete();
             if ($status) {
-                return redirect()->route('document.index')->with('success', 'Xóa báo cáo thành công!');
+                return redirect()->route('document.index')->with('success', 'Xóa tài liệu thành công!');
             } else {
-                return back()->with('error', 'Lỗi xóa báo cáo!');
+                return back()->with('error', 'Lỗi xóa tài liệu!');
             }
         } else {
-            return back()->with('error', 'Không tồn tại báo cáo này!');
+            return back()->with('error', 'Không tồn tại tài liệu này!');
         }
     }
 }
