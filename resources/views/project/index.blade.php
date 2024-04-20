@@ -34,28 +34,6 @@
             white-space: nowrap;
         }
     </style>
-    <style>
-      progress {
-         position: absolute;
-         height: 24px;
-         width: 500px;
-         border: 1px solid #fff;
-      }
-      progress::before {
-         content: "Loading: " attr(value) "%";
-         position: absolute;
-         width: 100%;
-         text-align: center;
-         font-size: 18px;
-         color: blue;
-      }
-      progress::-webkit-progress-bar {
-         background-color: orange;
-      }
-      progress::-webkit-progress-value {
-         background-color: red;
-      }
-   </style>
 </head>
 
 <body class="nav-md">
@@ -144,10 +122,8 @@
                                                     <tr>
                                                         <td>Tiến độ dự án</td>
                                                         <td align="right" colspan="7">
-                                                            <div id="divpercent">
-                                                                <div style="background:#F1F1F1">
-                                                                    <div id="mydiv" style="background:#2196F3;height:16px;width:{{ ($loop->index + 1) + 15}}%">{{ ($loop->index + 1) + 15}}%</div>
-                                                                </div>
+                                                            <div style="background:#F1F1F1">
+                                                                <div id="mydiv" style="color:white;background:#2196F3;height:16px;width:{{ ($loop->index + 1) + 15}}%">{{ ($loop->index + 1) + 15}}%</div>
                                                             </div>
                                                         </td>
                                                     </tr>
