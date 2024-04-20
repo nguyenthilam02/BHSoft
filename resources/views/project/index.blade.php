@@ -34,12 +34,33 @@
             white-space: nowrap;
         }
     </style>
+    <style>
+      progress {
+         position: absolute;
+         height: 24px;
+         width: 500px;
+         border: 1px solid #fff;
+      }
+      progress::before {
+         content: "Loading: " attr(value) "%";
+         position: absolute;
+         width: 100%;
+         text-align: center;
+         font-size: 18px;
+         color: blue;
+      }
+      progress::-webkit-progress-bar {
+         background-color: orange;
+      }
+      progress::-webkit-progress-value {
+         background-color: red;
+      }
+   </style>
 </head>
 
 <body class="nav-md">
 <div class="container body">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
     <div class="main_container">
         @include('layouts.sidebar')
 
@@ -50,22 +71,6 @@
         <!-- page content -->
         <div class="right_col" role="main">
             <div class="">
-{{--                <div class="page-title">--}}
-{{--                    <div class="title_left">--}}
-{{--                        <h3>Users <small>Some examples to get you started</small></h3>--}}
-{{--                    </div>--}}
-
-{{--                    <div class="title_right">--}}
-{{--                        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">--}}
-{{--                            <div class="input-group">--}}
-{{--                                <input type="text" class="form-control" placeholder="Search for...">--}}
-{{--                                <span class="input-group-btn">--}}
-{{--                      <button class="btn btn-secondary" type="button">Go!</button>--}}
-{{--                    </span>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
 
                 <div class="clearfix"></div>
                 @include('layouts.notification')
@@ -80,13 +85,6 @@
                                     @endif
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
-{{--                                    <li class="dropdown">--}}
-{{--                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>--}}
-{{--                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">--}}
-{{--                                            <a class="dropdown-item" href="#">Settings 1</a>--}}
-{{--                                            <a class="dropdown-item" href="#">Settings 2</a>--}}
-{{--                                        </div>--}}
-{{--                                    </li>--}}
                                     <li><a href="{{route('project.index')}}" class="close-link"><i class="fa fa-close"></i></a>
                                     </li>
                                 </ul>
@@ -96,9 +94,6 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="card-box table-responsive">
-{{--                                            <p class="text-muted font-13 m-b-30">--}}
-{{--                                                DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>--}}
-{{--                                            </p>--}}
                                             <table id="datatable" class="table table-striped table-bordered" style="width:100%">
                                                 <thead>
                                                 <tr>
@@ -110,11 +105,6 @@
                                                     <th>Trạng thái</th>
                                                     <th>Mô tả</th>
                                                     <th>Thao tác</th>
-
-{{--                                                    <th>Office</th>--}}
-{{--                                                    <th>Age</th>--}}
-{{--                                                    <th>Start date</th>--}}
-{{--                                                    <th>Salary</th>--}}
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -154,8 +144,10 @@
                                                     <tr>
                                                         <td>Tiến độ dự án</td>
                                                         <td align="right" colspan="7">
-                                                            <div class="w3-light-grey">
-                                                                <div class="w3-blue" style="height:16px;width:{{ ($loop->index + 1) + 15}}%">{{ ($loop->index + 1) + 15 }}%</div>
+                                                            <div id="divpercent">
+                                                                <div style="background:#F1F1F1">
+                                                                    <div id="mydiv" style="background:#2196F3;height:16px;width:{{ ($loop->index + 1) + 15}}%">{{ ($loop->index + 1) + 15}}%</div>
+                                                                </div>
                                                             </div>
                                                         </td>
                                                     </tr>
