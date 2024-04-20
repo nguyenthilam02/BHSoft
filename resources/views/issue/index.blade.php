@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="{{asset('production/images/logo.png')}}" type="image/ico" />
-    <title>Danh sách issue</title>
+    <title>Danh sách vấn đề</title>
 
     <!-- Bootstrap -->
     <link href="cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
@@ -71,7 +71,7 @@
                     <div class="col-md-12 col-sm-12 ">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2>Danh sách issue</h2>
+                                <h2>Danh sách vấn đề</h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li><a href="{{route('issue.create')}}" style="padding: 0; margin-right: 10px"><button class="btn btn-primary" type="button">Thêm mới</button></a></li>
 
@@ -139,7 +139,7 @@
                                                 <thead>
                                                 <tr>
                                                     <th>STT</th>
-                                                    <th>Mã issue</th>
+                                                    <th>Mã vấn đề</th>
                                                     <th>Tiêu đề</th>
                                                     <th>Trạng thái</th>
                                                     <th>Phân loại</th>

@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="{{asset('production/images/logo.png')}}" type="image/ico" />
-    <title>Thêm mới issue</title>
+    <title>Thêm mới vấn đề</title>
 
     <!-- Bootstrap -->
     <link href="{{asset('/vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -75,7 +75,7 @@
                     <div class="col-md-12 col-sm-12 ">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2>Thêm issue</h2>
+                                <h2>Thêm vấn đề</h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
@@ -102,7 +102,7 @@
                                     @csrf
 {{--                                    <div class="item form-group">--}}
 {{--                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Mã--}}
-{{--                                            issue <span class="required">*</span>--}}
+{{--                                            vấn đề <span class="required">*</span>--}}
 {{--                                        </label>--}}
 {{--                                        <div class="col-md-6 col-sm-6 ">--}}
 {{--                                            <input type="text" id="first-name" name="code" required="required"--}}
@@ -229,7 +229,7 @@
                                         <label class="col-form-label col-md-3 col-sm-3 label-align">Mô tả</label>
                                         <div class="col-md-6 col-sm-6 ">
                                             <textarea class="resizable_textarea form-control" name="description"
-                                                      placeholder="Nhập mô tả dự án của bạn tại đây...">{{old('description')}}</textarea>
+                                                      placeholder="Nhập mô tả vấn đề của bạn tại đây...">{{old('description')}}</textarea>
                                         </div>
                                     </div>
                                     <div class="ln_solid"></div>

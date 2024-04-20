@@ -46,10 +46,10 @@
                             {{--                                    <li><a href="form_buttons.html">Form Buttons</a></li>--}}
                         </ul>
                     </li>
-                    <li><a><i class="fa fa-desktop"></i> Issue <span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-desktop"></i> Vấn đề <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="{{route('issue.index')}}">Danh sách issue</a></li>
-                            <li><a href="{{route('issue.create')}}">Thêm issue</a></li>
+                            <li><a href="{{route('issue.index')}}">Danh sách vấn đề</a></li>
+                            <li><a href="{{route('issue.create')}}">Thêm vấn đề</a></li>
                             {{--                                    <li><a href="typography.html">Typography</a></li>--}}
                             {{--                                    <li><a href="icons.html">Icons</a></li>--}}
                             {{--                                    <li><a href="glyphicons.html">Glyphicons</a></li>--}}
