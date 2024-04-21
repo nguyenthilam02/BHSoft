@@ -73,7 +73,7 @@
                             <div class="x_title">
                                 <h2>Danh sách vấn đề</h2>
                                 <ul class="nav navbar-right panel_toolbox">
-                                    <li><a href="{{route('issue.create')}}" style="padding: 0; margin-right: 10px"><button class="btn btn-primary" type="button">Thêm mới</button></a></li>
+                                    <li><a href="{{route('issue.create')}}" style="padding: 0; margin-right: 10px"><button class="btn btn-primary" type="button">Tạo vấn đề</button></a></li>
 
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
