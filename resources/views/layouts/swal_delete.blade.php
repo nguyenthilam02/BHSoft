@@ -10,8 +10,8 @@
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Có, xóa nó!",
-            cancelButtonText: "Không, hủy!",
+            confirmButtonText: "Có",
+            cancelButtonText: "Không",
         }).then((result) => {
             if (result.isConfirmed) {
                 form.submit();
