@@ -69,6 +69,27 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
+                                <div class="form-group">
+                                    <div class="col-sm-6">
+                                        <div class="dataTables_length" id="datatable_length">
+                                            <label>Show 
+                                                <select name="datatable_length" aria-controls="datatable" class="form-control input-sm">
+                                                    <option value="10">10</option>
+                                                    <option value="25">25</option>
+                                                    <option value="50">50</option>
+                                                    <option value="100">100</option>
+                                                </select>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6" style="display: flex; justify-content: flex-end">
+                                        <div id="datatable_filter" class="dataTables_filter">
+                                            <label>Search:
+                                                <input type="search" class="form-control input-sm" placeholder="" aria-controls="datatable">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="card-box table-responsive">
